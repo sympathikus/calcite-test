@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "defaultSchema": "SALES",
+  "schemas": [
+    {
+      "name": "SALES",
+      "type": "custom",
+      "factory": "de.paulsikorski.calcitetest.CalciteTestSchemaFactory",
+      "operand": {
+        "directory": "src/main/resources/sales-json"
+      }
+    }
+  ]
+}

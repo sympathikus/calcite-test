@@ -1,0 +1,18 @@
+[
+	{
+		"TOPIC": "Apache Calcite",
+		"MATNR": 123456789
+	},
+	{
+		"TOPIC": "ZetaSql",
+		"MATNR": 987654321
+	},
+	{
+		"TOPIC": "Apache Arrow",
+		"MATNR": 918273645
+	},
+	{
+		"TOPIC": "Apache Parquet",
+		"MATNR": 192837465
+	}
+]

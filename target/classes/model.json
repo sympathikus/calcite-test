@@ -1,0 +1,14 @@
+{
+  "version": '1.0',
+  "defaultSchema": 'TEST',
+  "schemas": [
+    {
+      "name": 'TEST',
+      "type": 'custom',
+      "factory": 'de.paulsikorski.calcitetest.CalciteTestSchemaFactory',
+      "operand": {
+        "directory": 'src/main/resources/test'
+      }
+    }
+  ]
+}

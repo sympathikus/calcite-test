@@ -1,0 +1,18 @@
+[
+	{
+		"NAME": "Paul Sikorski",
+		"MATNR": 123456789
+	},
+	{
+		"NAME": "Nico Luettig",
+		"MATNR": 987654321
+	},
+	{
+		"NAME": "Hans Wurst",
+		"MATNR": 918273645
+	},
+	{
+		"NAME": "Max Mustermann",
+		"MATNR": 192837465
+	}
+]
