@@ -17,16 +17,25 @@ import org.apache.logging.log4j.Logger;
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 
-public class SchemaTableEntryBuilder implements Supplier<Map<String, Table>>{
+/** 
+ * Supplies a mapping from table name to actual {@link Table} object based on files in the given directory.
+ * @author Paul Sikorski
+ *
+ */
+public class SchemaTableMapBuilder implements Supplier<Map<String, Table>>{
 
-	private static final Logger LOG = LogManager.getLogger(SchemaTableEntryBuilder.class);
+	private static final Logger LOG = LogManager.getLogger(SchemaTableMapBuilder.class);
 	private final File baseDirectory;
 	
-	public SchemaTableEntryBuilder(File baseDirectory) {
+	public SchemaTableMapBuilder(File baseDirectory) {
 		super();
 		this.baseDirectory = baseDirectory;
 	}
 
+	/**
+	 * Scans the directory for files and transforms them into tables, which are put into the resulting Map.
+	 * If no files are found in the directory, or the directory is null, an empty map is returned.
+	 */
 	@Override
 	public Map<String, Table> get() {
 		LOG.info("Building tables from files in base directory {}", baseDirectory.getPath());
@@ -63,6 +72,14 @@ public class SchemaTableEntryBuilder implements Supplier<Map<String, Table>>{
 	    return builder.build();
 	}
 
+	/**
+	 * Transforms a single file, given by parameter source, to a {@link Table} object and returns an Optional
+	 * containing this table in an {@link Map.Entry}. If the file is null or no implementation exists for this file type,
+	 * an empty {@link Optional} is returned.
+	 * @param source
+	 * @param tableName
+	 * @return
+	 */
 	private Optional<Entry<String, Table>> getEntry(Source source, String tableName){
 		final Source sourceSansGz = source.trim(".gz");
 	    final Source sourceSansJson = sourceSansGz.trimOrNull(".json");

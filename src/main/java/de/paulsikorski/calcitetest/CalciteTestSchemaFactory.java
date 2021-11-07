@@ -42,7 +42,7 @@ public class CalciteTestSchemaFactory implements SchemaFactory {
 	        directoryFile = new File(baseDirectory, directory);
 	      }
 	    }
-	    return new CalciteTestSchema(parentSchema, name, new SchemaTableEntryBuilder(directoryFile).get());
+	    return new CalciteTestSchema(parentSchema, name, new SchemaTableMapBuilder(directoryFile).get());
 	}
 
 	
