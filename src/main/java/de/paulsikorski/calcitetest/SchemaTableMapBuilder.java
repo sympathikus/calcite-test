@@ -40,11 +40,7 @@ public class SchemaTableMapBuilder implements Supplier<Map<String, Table>>{
 	public Map<String, Table> get() {
 		LOG.info("Building tables from files in base directory {}", baseDirectory.getPath());
 		final Source baseSource = Sources.of(baseDirectory);
-	    File[] files = baseDirectory.listFiles((dir, name) -> {
-	        final String nameSansGz = trim(name, ".gz");
-	        return nameSansGz.endsWith(".csv")
-	            || nameSansGz.endsWith(".json");
-	    });
+	    File[] files = baseDirectory.listFiles(new SqlOnFileFileFilter());
 	    if (files == null) {
 	        System.out.println("directory " + baseDirectory + " not found");
 	        return ImmutableMap.<String, Table>of();
@@ -95,17 +91,4 @@ public class SchemaTableMapBuilder implements Supplier<Map<String, Table>>{
 	    return Optional.empty();
 	}
 	
-	private String trim(String s, String suffix) {
-	    String trimmed = trimOrNull(s, suffix);
-	    return trimmed != null ? trimmed : s;
-	}
-	
-	  /**
-   * Looks for a suffix on a string and returns
-   * either the string with the suffix removed
-   * or null.
-   */
-	private String trimOrNull(String s, String suffix) {
-	    return s.endsWith(suffix) ? s.substring(0, s.length() - suffix.length()) : null;
-	}
 }

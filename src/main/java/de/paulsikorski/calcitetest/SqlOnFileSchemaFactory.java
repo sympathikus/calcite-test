@@ -17,12 +17,12 @@ import org.apache.logging.log4j.Logger;
 
 import com.google.common.collect.ImmutableMap;
 
-public class CalciteTestSchemaFactory implements SchemaFactory {
+public class SqlOnFileSchemaFactory implements SchemaFactory {
 
-	private static final Logger LOG = LogManager.getLogger(CalciteTestSchemaFactory.class);
-	private static final CalciteTestSchemaFactory INSTANCE = new CalciteTestSchemaFactory();
+	private static final Logger LOG = LogManager.getLogger(SqlOnFileSchemaFactory.class);
+	private static final SqlOnFileSchemaFactory INSTANCE = new SqlOnFileSchemaFactory();
 	
-	public CalciteTestSchemaFactory() {
+	public SqlOnFileSchemaFactory() {
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -42,7 +42,7 @@ public class CalciteTestSchemaFactory implements SchemaFactory {
 	        directoryFile = new File(baseDirectory, directory);
 	      }
 	    }
-	    return new CalciteTestSchema(parentSchema, name, new SchemaTableMapBuilder(directoryFile).get());
+	    return new SqlOnFileSchema(parentSchema, name, new SchemaTableMapBuilder(directoryFile).get());
 	}
 
 	
