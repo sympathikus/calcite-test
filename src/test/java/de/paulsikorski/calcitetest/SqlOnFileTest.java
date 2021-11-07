@@ -1,7 +1,6 @@
 package de.paulsikorski.calcitetest;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -9,8 +8,6 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 import org.apache.calcite.jdbc.CalciteConnection;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
