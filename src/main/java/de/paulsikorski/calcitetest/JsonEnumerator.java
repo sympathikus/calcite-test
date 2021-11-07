@@ -24,22 +24,22 @@ public class JsonEnumerator implements Enumerator<@Nullable Object[]>{
 	
 	private final Enumerator<@Nullable Object[]> enumerator;
 
-	  public JsonEnumerator(List<? extends @Nullable Object> list) {
-		  System.out.println("Enumerating");
-	    List<@Nullable Object[]> objs = new ArrayList<>();
-	    for (Object obj : list) {
-	      if (obj instanceof Collection) {
-	        //noinspection unchecked
-	        List<Object> tmp = (List<Object>) obj;
-	        objs.add(tmp.toArray());
-	      } else if (obj instanceof Map) {
-	        objs.add(((LinkedHashMap) obj).values().toArray());
-	      } else {
-	        objs.add(new Object[]{obj});
-	      }
-	    }
-	    enumerator = Linq4j.enumerator(objs);
-	  }
+	public JsonEnumerator(List<? extends @Nullable Object> list) {
+		System.out.println("Enumerating");
+		List<@Nullable Object[]> objs = new ArrayList<>();
+		for (Object obj : list) {
+			if (obj instanceof Collection) {
+				//noinspection unchecked
+				List<Object> tmp = (List<Object>) obj;
+				objs.add(tmp.toArray());
+		    } else if (obj instanceof Map) {
+		        objs.add(((LinkedHashMap) obj).values().toArray());
+		    } else {
+		        objs.add(new Object[]{obj});
+		    }
+		}
+		enumerator = Linq4j.enumerator(objs);
+  }
 
 	  /** Deduces the names and types of a table's columns by reading the first line
 	   * of a JSON file. */

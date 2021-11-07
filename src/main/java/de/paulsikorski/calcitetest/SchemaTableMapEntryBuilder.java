@@ -34,16 +34,26 @@ public class SchemaTableMapEntryBuilder implements Function<File, Optional<Entry
 	public Optional<Entry<String, Table>> apply(File file) {
 		LOG.debug("Attempting to build table for file {}", file);
 		final Source fileSource = Sources.of(file);
-		final String tableName = fileSource.trim(".gz").relative(directory).path();
-		if(tableName.endsWith(".json")) {
-			final Table table = new JsonTable(fileSource);
-			LOG.info("Build table {} from json file", tableName);
-			return Optional.of(Maps.immutableEntry(tableName, table));
-		} else if(tableName.endsWith(".csv")) {
-			LOG.info("Csv adapter not implemented yet");
-		} 
-		LOG.info("No suitable adapter for file {} found", tableName);
-		return Optional.empty();
+		return Optional.ofNullable(fileSource)
+		.map(fS -> fS.trim(".gz"))
+		.map(trimmedFileSource -> trimmedFileSource.relative(directory))
+		.map(relativeSource -> relativeSource.path())
+		.map(tableName -> {
+			final Table table;
+			if(tableName.endsWith(".json")) {
+				//TODO maybe do the file processing here so that it doesn't have to be executed multiple times
+				// don't know if this is an actual issue 
+				table = new JsonTable(fileSource);
+				LOG.info("Build table {} from json file", tableName);
+			} else if(tableName.endsWith(".csv")) {
+				table = new CsvTable(fileSource);
+				LOG.info("Build table {} from csv file", tableName);
+			} else {
+				LOG.info("No suitable adapter for file {} found", tableName);
+				return null;
+			}
+			return Maps.immutableEntry(tableName, table);
+		});
 	}
-
+	
 }
