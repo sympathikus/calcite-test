@@ -7,7 +7,7 @@
       "type": 'custom',
       "factory": 'de.paulsikorski.calcitetest.SqlOnFileSchemaFactory',
       "operand": {
-        "directory": 'src/main/resources/test'
+        "directory": 'src/test/resources/test'
       }
     }
   ]
