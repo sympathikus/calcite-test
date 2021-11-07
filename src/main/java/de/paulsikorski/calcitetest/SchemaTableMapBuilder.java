@@ -25,11 +25,11 @@ import com.google.common.collect.Maps;
 public class SchemaTableMapBuilder implements Supplier<Map<String, Table>>{
 
 	private static final Logger LOG = LogManager.getLogger(SchemaTableMapBuilder.class);
-	private final File baseDirectory;
+	private final File directory;
 	
 	public SchemaTableMapBuilder(File baseDirectory) {
 		super();
-		this.baseDirectory = baseDirectory;
+		this.directory = baseDirectory;
 	}
 
 	/**
@@ -38,57 +38,23 @@ public class SchemaTableMapBuilder implements Supplier<Map<String, Table>>{
 	 */
 	@Override
 	public Map<String, Table> get() {
-		LOG.info("Building tables from files in base directory {}", baseDirectory.getPath());
-		final Source baseSource = Sources.of(baseDirectory);
-	    File[] files = baseDirectory.listFiles(new SqlOnFileFileFilter());
+		LOG.info("Building tables from files in base directory {}", directory.getPath());
+		
+		// List suitable files (specified by SqlOnFileFileFilter) in given directory
+	    File[] files = directory.listFiles(new SqlOnFileFileFilter());
 	    if (files == null) {
-	        System.out.println("directory " + baseDirectory + " not found");
+	        System.out.println("directory " + directory + " not found");
 	        return ImmutableMap.<String, Table>of();
 	    }
+	    LOG.info("Found {} files in directory {}", files.length, directory.getPath());
+	    
 	      // Build a map from table name to table; each file becomes a table.
 	    final ImmutableMap.Builder<String, Table> builder = ImmutableMap.builder();
-	    Stream.of(files).forEach(file -> {
-	    	Source source = Sources.of(file);
-		    Source sourceSansGz = source.trim(".gz");
-		    final Source sourceSansJson = sourceSansGz.trimOrNull(".json");
-			if (sourceSansJson != null) {
-				final Optional<Entry<String, Table>> entryOpt = getEntry(source, sourceSansJson.relative(baseSource).path());
-				if(entryOpt.isPresent()) {
-					LOG.info("Creation of table for file {} successful", source.path());
-					builder.put(entryOpt.get());
-				} else {
-					LOG.warn("Unable to add table for file {}", source.path());
-				}
-			}
-			final Source sourceSansCsv = sourceSansGz.trimOrNull(".csv");
-			if (sourceSansCsv != null) {
-				LOG.warn("CSV-Tables not implemented yet");
-			}
-	      });
+	    Stream.of(files).map(new SchemaTableMapEntryBuilder(Sources.of(directory)))
+	    .filter(Optional::isPresent)
+	    .map(Optional::get)
+	    .forEach(builder::put);
 	    return builder.build();
 	}
 
-	/**
-	 * Transforms a single file, given by parameter source, to a {@link Table} object and returns an Optional
-	 * containing this table in an {@link Map.Entry}. If the file is null or no implementation exists for this file type,
-	 * an empty {@link Optional} is returned.
-	 * @param source
-	 * @param tableName
-	 * @return
-	 */
-	private Optional<Entry<String, Table>> getEntry(Source source, String tableName){
-		final Source sourceSansGz = source.trim(".gz");
-	    final Source sourceSansJson = sourceSansGz.trimOrNull(".json");
-	    if (sourceSansJson != null) {
-	      final Table table = new JsonTable(source);
-	      return Optional.of(Maps.immutableEntry(Util.first(tableName, sourceSansJson.path()), table));
-	    }
-	    LOG.warn("Only json files are implemented");
-	    final Source sourceSansCsv = sourceSansGz.trimOrNull(".csv");
-	    if (sourceSansCsv != null) {
-	    	LOG.warn("Csv not implemented");
-	    }
-	    return Optional.empty();
-	}
-	
 }

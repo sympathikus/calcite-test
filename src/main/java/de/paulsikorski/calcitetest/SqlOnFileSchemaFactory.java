@@ -42,7 +42,11 @@ public class SqlOnFileSchemaFactory implements SchemaFactory {
 	        directoryFile = new File(baseDirectory, directory);
 	      }
 	    }
-	    return new SqlOnFileSchema(parentSchema, name, new SchemaTableMapBuilder(directoryFile).get());
+	    final Map<String, Table> tableMap = new SchemaTableMapBuilder(directoryFile).get();
+	    if(tableMap.isEmpty()) {
+	    	LOG.error("Unable to build any tables. Please check calcite model file or configuration");
+	    }
+	    return new SqlOnFileSchema(parentSchema, name, tableMap);
 	}
 
 	

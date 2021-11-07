@@ -31,12 +31,12 @@ public class TestLauncher {
 		CalciteConnection calciteConnection =
 		    connection.unwrap(CalciteConnection.class);
 		
-		//Create and execute statement
-		LOG.info("Creating and executing join statement");
-		
 		//SELECT on both tables
+		final String sql1 = new StringBuilder().append("select * from ")
+				.append("\"STUDENTS.json\"")
+				.toString();
 		try(Statement statement = calciteConnection.createStatement();
-			ResultSet selectStudentsResult = calciteConnection.createStatement().executeQuery("Select * from students")) {
+			ResultSet selectStudentsResult = calciteConnection.createStatement().executeQuery(sql1)) {
 			
 			ResultSetMetaData rSMD = selectStudentsResult.getMetaData();
 			int columnsNumber2 = rSMD.getColumnCount();
@@ -50,8 +50,11 @@ public class TestLauncher {
 			}
 		} 
 		
+		final String sql2 = new StringBuilder().append("select * from ")
+				.append("\"TOPICS.json\"")
+				.toString();
 		try(Statement statement = calciteConnection.createStatement();
-				ResultSet selectStudentsResult = statement.executeQuery("Select * from topics")) {
+				ResultSet selectStudentsResult = statement.executeQuery(sql2)) {
 			
 			ResultSetMetaData rSMD = selectStudentsResult.getMetaData();
 			int columnsNumber2 = rSMD.getColumnCount();
@@ -65,11 +68,15 @@ public class TestLauncher {
 			}
 		}
 		
-		
-		//Query with join
+		//Create and execute statement
+		LOG.info("Creating and executing join statement");
+		final String sql3 = new StringBuilder().append("select ")
+				.append("\"STUDENTS.json\".matNr, \"STUDENTS.json\".name, \"TOPICS.json\".topic from ")
+				.append("\"STUDENTS.json\" inner join \"TOPICS.json\" on ")
+				.append("\"STUDENTS.json\".matNr=\"TOPICS.json\".matNr")
+				.toString();
 		try(Statement statement = calciteConnection.createStatement();
-			ResultSet queryJoinResult = statement.executeQuery("select students.matNr, students.name, topics.topic "
-					+ "from students inner join topics on students.matNr=topics.matNr")) {
+			ResultSet queryJoinResult = statement.executeQuery(sql3)) {
 			
 			ResultSetMetaData rSMD = queryJoinResult.getMetaData();
 			while (queryJoinResult.next()) {
