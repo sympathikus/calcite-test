@@ -5,7 +5,7 @@
     {
       "name": 'TEST',
       "type": 'custom',
-      "factory": 'de.paulsikorski.calcitetest.SqlOnFileSchemaFactory',
+      "factory": 'de.paulsikorski.calcitetest.model.SqlOnFileSchemaFactory',
       "operand": {
         "directory": 'src/test/resources/test'
       }

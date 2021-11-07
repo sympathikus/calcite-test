@@ -1,0 +1,252 @@
+18:07:08.632 [main] INFO  de.paulsikorski.calcitetest.model.SqlOnFileSchemaFactory - Constructing Schema TEST
+18:07:08.637 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapBuilder - Building tables from files in base directory src\test\resources\test
+18:07:08.638 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapBuilder - Found 7 files in directory src\test\resources\test
+18:07:08.642 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\DATE.csv
+18:07:08.645 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table DATE.csv from csv file
+18:07:08.648 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\DEPTS.json
+18:07:08.655 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table DEPTS.json from json file
+18:07:08.655 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EMPS.json
+18:07:08.656 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table EMPS.json from json file
+18:07:08.656 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EMPTY.json
+18:07:08.656 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table EMPTY.json from json file
+18:07:08.656 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\SDEPTS.json
+18:07:08.656 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table SDEPTS.json from json file
+18:07:08.656 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\STUDENTS.json
+18:07:08.656 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table STUDENTS.json from json file
+18:07:08.657 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\TOPICS.json
+18:07:08.657 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table TOPICS.json from json file
+18:07:08.692 [main] INFO  de.paulsikorski.calcitetest.CommandLineToolLauncher - Connected to Sql-On-File
+18:07:23.871 [main] DEBUG org.apache.calcite.sql2rel - Plan after converting SqlNode to RelNode
+LogicalProject(NAME=[$0], MATNR=[$1])
+  LogicalTableScan(table=[[TEST, STUDENTS.json]])
+
+18:07:23.896 [main] DEBUG org.apache.calcite.sql2rel - Plan after trimming unused fields
+LogicalProject(NAME=[$0], MATNR=[$1])
+  LogicalTableScan(table=[[TEST, STUDENTS.json]])
+
+18:07:23.897 [main] DEBUG org.apache.calcite.sql2rel - Plan after trimming unused fields
+LogicalProject(NAME=[$0], MATNR=[$1])
+  LogicalTableScan(table=[[TEST, STUDENTS.json]])
+
+18:07:23.913 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - Rule Attempts Info for HepPlanner
+18:07:23.915 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - 
+Rules                                                                   Attempts           Time (us)
+* Total                                                                        0                   0
+
+18:07:23.915 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - For final plan, using rel#4:LogicalProject.NONE.[](input=HepRelVertex#3,inputs=0..1)
+18:07:23.916 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - For final plan, using rel#1:LogicalTableScan.NONE.[](table=[TEST, STUDENTS.json])
+18:07:23.917 [main] DEBUG org.apache.calcite.sql2rel - Plan after trimming unused fields
+LogicalProject(NAME=[$0], MATNR=[$1])
+  LogicalTableScan(table=[[TEST, STUDENTS.json]])
+
+18:07:24.019 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@b14b60a; COST = {inf}
+18:07:24.020 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [ProjectRemoveRule] rels [#7]
+18:07:24.020 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#24: Apply rule [ProjectRemoveRule] to [rel#7:LogicalProject.NONE.[](input=RelSubset#6,inputs=0..1)]
+18:07:24.022 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#6 via ProjectRemoveRule
+18:07:24.024 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#24 generated 1 successors: [rel#6:RelSubset#0.NONE.[]]
+18:07:24.025 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@b14b60a; COST = {inf}
+18:07:24.025 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [BindableTableScanRule] rels [#1]
+18:07:24.025 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#15: Apply rule [BindableTableScanRule] to [rel#1:LogicalTableScan.NONE.[](table=[TEST, STUDENTS.json])]
+18:07:24.028 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#13 via BindableTableScanRule
+18:07:24.029 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#15 generated 1 successors: [rel#13:BindableTableScan.BINDABLE.[](table=[TEST, STUDENTS.json])]
+18:07:24.029 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@b14b60a; COST = {inf}
+18:07:24.030 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [EnumerableTableScanRule(in:NONE,out:ENUMERABLE)] rels [#1]
+18:07:24.030 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#17: Apply rule [EnumerableTableScanRule(in:NONE,out:ENUMERABLE)] to [rel#1:LogicalTableScan.NONE.[](table=[TEST, STUDENTS.json])]
+18:07:24.034 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#15 via EnumerableTableScanRule(in:NONE,out:ENUMERABLE)
+18:07:24.035 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#17 generated 1 successors: [rel#15:EnumerableTableScan.ENUMERABLE.[](table=[TEST, STUDENTS.json])]
+18:07:24.037 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@b14b60a; COST = {100.0 rows, 101.0 cpu, 0.0 io}
+18:07:24.037 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Skip match: rule [EnumerableProjectRule(in:NONE,out:ENUMERABLE)] rels [#7]
+18:07:24.037 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [ExpandConversionRule] rels [#11]
+18:07:24.037 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#56: Apply rule [ExpandConversionRule] to [rel#11:AbstractConverter.ENUMERABLE.[](input=RelSubset#6,convention=ENUMERABLE,sort=[])]
+18:07:24.039 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#56 generated 0 successors.
+18:07:24.039 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@b14b60a; COST = {100.0 rows, 101.0 cpu, 0.0 io}
+18:07:24.039 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)] rels [#13]
+18:07:24.039 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#116: Apply rule [EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)] to [rel#13:BindableTableScan.BINDABLE.[](table=[TEST, STUDENTS.json])]
+18:07:24.039 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#16 via EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)
+18:07:24.065 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#116 generated 1 successors: [rel#16:EnumerableInterpreter.ENUMERABLE.[](input=BindableTableScan#13)]
+18:07:24.065 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@b14b60a; COST = {100.0 rows, 101.0 cpu, 0.0 io}
+18:07:24.065 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - Rule Attempts Info for VolcanoPlanner
+18:07:24.067 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - 
+Rules                                                                   Attempts           Time (us)
+EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)                          1              25,773
+EnumerableTableScanRule(in:NONE,out:ENUMERABLE)                                1               5,461
+BindableTableScanRule                                                          1               4,238
+ProjectRemoveRule                                                              1               3,566
+ExpandConversionRule                                                           1               1,383
+* Total                                                                        5              40,421
+
+18:07:24.082 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Cheapest plan:
+EnumerableTableScan(table=[[TEST, STUDENTS.json]]): rowcount = 100.0, cumulative cost = {100.0 rows, 101.0 cpu, 0.0 io}, id = 15
+
+18:07:24.085 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Provenance:
+rel#15:EnumerableTableScan.ENUMERABLE.[](table=[TEST, STUDENTS.json])
+  call#17 rule [EnumerableTableScanRule(in:NONE,out:ENUMERABLE)]
+    rel#1:LogicalTableScan.NONE.[](table=[TEST, STUDENTS.json])
+      no parent
+
+18:07:24.085 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - Rule Attempts Info for HepPlanner
+18:07:24.086 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - 
+Rules                                                                   Attempts           Time (us)
+* Total                                                                        0                   0
+
+18:07:24.086 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - For final plan, using rel#15:EnumerableTableScan.ENUMERABLE.[](table=[TEST, STUDENTS.json])
+18:07:24.086 [main] DEBUG org.apache.calcite.prepare.Prepare - Plan after physical tweaks: EnumerableTableScan(table=[[TEST, STUDENTS.json]]): rowcount = 100.0, cumulative cost = {100.0 rows, 101.0 cpu, 0.0 io}, id = 15
+
+18:07:30.709 [main] ERROR de.paulsikorski.calcitetest.CalciteQueryExecutor - Error while executing statement 'select * from students.json'
+java.sql.SQLException: Error while executing SQL "select * from students.json": From line 1, column 15 to line 1, column 27: Object 'STUDENTS' not found
+	at org.apache.calcite.avatica.Helper.createException(Helper.java:56) ~[avatica-core-1.19.0.jar:1.19.0]
+	at org.apache.calcite.avatica.Helper.createException(Helper.java:41) ~[avatica-core-1.19.0.jar:1.19.0]
+	at org.apache.calcite.avatica.AvaticaStatement.executeInternal(AvaticaStatement.java:163) ~[avatica-core-1.19.0.jar:1.19.0]
+	at org.apache.calcite.avatica.AvaticaStatement.executeQuery(AvaticaStatement.java:227) ~[avatica-core-1.19.0.jar:1.19.0]
+	at de.paulsikorski.calcitetest.CalciteQueryExecutor.executeStatement(CalciteQueryExecutor.java:23) [classes/:?]
+	at de.paulsikorski.calcitetest.CommandLineToolLauncher.main(CommandLineToolLauncher.java:42) [classes/:?]
+Caused by: org.apache.calcite.runtime.CalciteContextException: From line 1, column 15 to line 1, column 27: Object 'STUDENTS' not found
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[?:?]
+	at org.apache.calcite.runtime.Resources$ExInstWithCause.ex(Resources.java:505) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.SqlUtil.newContextException(SqlUtil.java:932) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.SqlUtil.newContextException(SqlUtil.java:917) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.SqlValidatorImpl.newValidationError(SqlValidatorImpl.java:5266) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.IdentifierNamespace.resolveImpl(IdentifierNamespace.java:183) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.IdentifierNamespace.validateImpl(IdentifierNamespace.java:188) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.AbstractNamespace.validate(AbstractNamespace.java:89) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.SqlValidatorImpl.validateNamespace(SqlValidatorImpl.java:1100) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.SqlValidatorImpl.validateQuery(SqlValidatorImpl.java:1071) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.SqlValidatorImpl.validateFrom(SqlValidatorImpl.java:3375) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.SqlValidatorImpl.validateFrom(SqlValidatorImpl.java:3357) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.SqlValidatorImpl.validateSelect(SqlValidatorImpl.java:3639) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.SelectNamespace.validateImpl(SelectNamespace.java:64) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.AbstractNamespace.validate(AbstractNamespace.java:89) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.SqlValidatorImpl.validateNamespace(SqlValidatorImpl.java:1100) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.SqlValidatorImpl.validateQuery(SqlValidatorImpl.java:1071) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.SqlSelect.validate(SqlSelect.java:247) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.SqlValidatorImpl.validateScopedExpression(SqlValidatorImpl.java:1046) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.SqlValidatorImpl.validate(SqlValidatorImpl.java:752) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql2rel.SqlToRelConverter.convertQuery(SqlToRelConverter.java:587) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.prepare.Prepare.prepareSql(Prepare.java:251) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.prepare.Prepare.prepareSql(Prepare.java:215) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.prepare.CalcitePrepareImpl.prepare2_(CalcitePrepareImpl.java:647) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.prepare.CalcitePrepareImpl.prepare_(CalcitePrepareImpl.java:513) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.prepare.CalcitePrepareImpl.prepareSql(CalcitePrepareImpl.java:483) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.jdbc.CalciteConnectionImpl.parseQuery(CalciteConnectionImpl.java:249) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.jdbc.CalciteMetaImpl.prepareAndExecute(CalciteMetaImpl.java:623) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.avatica.AvaticaConnection.prepareAndExecuteInternal(AvaticaConnection.java:675) ~[avatica-core-1.19.0.jar:1.19.0]
+	at org.apache.calcite.avatica.AvaticaStatement.executeInternal(AvaticaStatement.java:156) ~[avatica-core-1.19.0.jar:1.19.0]
+	... 3 more
+Caused by: org.apache.calcite.sql.validate.SqlValidatorException: Object 'STUDENTS' not found
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:64) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:500) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:481) ~[?:?]
+	at org.apache.calcite.runtime.Resources$ExInstWithCause.ex(Resources.java:505) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.runtime.Resources$ExInst.ex(Resources.java:599) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.SqlUtil.newContextException(SqlUtil.java:932) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.SqlUtil.newContextException(SqlUtil.java:917) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.SqlValidatorImpl.newValidationError(SqlValidatorImpl.java:5266) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.IdentifierNamespace.resolveImpl(IdentifierNamespace.java:183) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.IdentifierNamespace.validateImpl(IdentifierNamespace.java:188) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.AbstractNamespace.validate(AbstractNamespace.java:89) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.SqlValidatorImpl.validateNamespace(SqlValidatorImpl.java:1100) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.SqlValidatorImpl.validateQuery(SqlValidatorImpl.java:1071) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.SqlValidatorImpl.validateFrom(SqlValidatorImpl.java:3375) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.SqlValidatorImpl.validateFrom(SqlValidatorImpl.java:3357) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.SqlValidatorImpl.validateSelect(SqlValidatorImpl.java:3639) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.SelectNamespace.validateImpl(SelectNamespace.java:64) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.AbstractNamespace.validate(AbstractNamespace.java:89) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.SqlValidatorImpl.validateNamespace(SqlValidatorImpl.java:1100) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.SqlValidatorImpl.validateQuery(SqlValidatorImpl.java:1071) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.SqlSelect.validate(SqlSelect.java:247) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.SqlValidatorImpl.validateScopedExpression(SqlValidatorImpl.java:1046) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql.validate.SqlValidatorImpl.validate(SqlValidatorImpl.java:752) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.sql2rel.SqlToRelConverter.convertQuery(SqlToRelConverter.java:587) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.prepare.Prepare.prepareSql(Prepare.java:251) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.prepare.Prepare.prepareSql(Prepare.java:215) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.prepare.CalcitePrepareImpl.prepare2_(CalcitePrepareImpl.java:647) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.prepare.CalcitePrepareImpl.prepare_(CalcitePrepareImpl.java:513) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.prepare.CalcitePrepareImpl.prepareSql(CalcitePrepareImpl.java:483) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.jdbc.CalciteConnectionImpl.parseQuery(CalciteConnectionImpl.java:249) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.jdbc.CalciteMetaImpl.prepareAndExecute(CalciteMetaImpl.java:623) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.avatica.AvaticaConnection.prepareAndExecuteInternal(AvaticaConnection.java:675) ~[avatica-core-1.19.0.jar:1.19.0]
+	at org.apache.calcite.avatica.AvaticaStatement.executeInternal(AvaticaStatement.java:156) ~[avatica-core-1.19.0.jar:1.19.0]
+	... 3 more
+18:07:30.731 [main] ERROR de.paulsikorski.calcitetest.CommandLineToolLauncher - Execution of statement select * from students.json failed
+18:07:47.961 [main] DEBUG org.apache.calcite.sql2rel - Plan after converting SqlNode to RelNode
+LogicalProject(NAME=[$0], MATNR=[$1])
+  LogicalTableScan(table=[[TEST, STUDENTS.json]])
+
+18:07:47.962 [main] DEBUG org.apache.calcite.sql2rel - Plan after trimming unused fields
+LogicalProject(NAME=[$0], MATNR=[$1])
+  LogicalTableScan(table=[[TEST, STUDENTS.json]])
+
+18:07:47.962 [main] DEBUG org.apache.calcite.sql2rel - Plan after trimming unused fields
+LogicalProject(NAME=[$0], MATNR=[$1])
+  LogicalTableScan(table=[[TEST, STUDENTS.json]])
+
+18:07:47.963 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - Rule Attempts Info for HepPlanner
+18:07:47.963 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - 
+Rules                                                                   Attempts           Time (us)
+* Total                                                                        0                   0
+
+18:07:47.964 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - For final plan, using rel#23:LogicalProject.NONE.[](input=HepRelVertex#22,inputs=0..1)
+18:07:47.964 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - For final plan, using rel#20:LogicalTableScan.NONE.[](table=[TEST, STUDENTS.json])
+18:07:47.964 [main] DEBUG org.apache.calcite.sql2rel - Plan after trimming unused fields
+LogicalProject(NAME=[$0], MATNR=[$1])
+  LogicalTableScan(table=[[TEST, STUDENTS.json]])
+
+18:07:47.967 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@28b8f98a; COST = {inf}
+18:07:47.967 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [ProjectRemoveRule] rels [#26]
+18:07:47.967 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#144: Apply rule [ProjectRemoveRule] to [rel#26:LogicalProject.NONE.[](input=RelSubset#25,inputs=0..1)]
+18:07:47.967 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#25 via ProjectRemoveRule
+18:07:47.968 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#144 generated 1 successors: [rel#25:RelSubset#0.NONE.[]]
+18:07:47.968 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@28b8f98a; COST = {inf}
+18:07:47.968 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [BindableTableScanRule] rels [#20]
+18:07:47.968 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#135: Apply rule [BindableTableScanRule] to [rel#20:LogicalTableScan.NONE.[](table=[TEST, STUDENTS.json])]
+18:07:47.969 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#32 via BindableTableScanRule
+18:07:47.969 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#135 generated 1 successors: [rel#32:BindableTableScan.BINDABLE.[](table=[TEST, STUDENTS.json])]
+18:07:47.969 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@28b8f98a; COST = {inf}
+18:07:47.969 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [EnumerableTableScanRule(in:NONE,out:ENUMERABLE)] rels [#20]
+18:07:47.969 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#137: Apply rule [EnumerableTableScanRule(in:NONE,out:ENUMERABLE)] to [rel#20:LogicalTableScan.NONE.[](table=[TEST, STUDENTS.json])]
+18:07:47.970 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#34 via EnumerableTableScanRule(in:NONE,out:ENUMERABLE)
+18:07:47.970 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#137 generated 1 successors: [rel#34:EnumerableTableScan.ENUMERABLE.[](table=[TEST, STUDENTS.json])]
+18:07:47.970 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@28b8f98a; COST = {100.0 rows, 101.0 cpu, 0.0 io}
+18:07:47.970 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Skip match: rule [EnumerableProjectRule(in:NONE,out:ENUMERABLE)] rels [#26]
+18:07:47.970 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [ExpandConversionRule] rels [#30]
+18:07:47.970 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#176: Apply rule [ExpandConversionRule] to [rel#30:AbstractConverter.ENUMERABLE.[](input=RelSubset#25,convention=ENUMERABLE,sort=[])]
+18:07:47.970 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#176 generated 0 successors.
+18:07:47.971 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@28b8f98a; COST = {100.0 rows, 101.0 cpu, 0.0 io}
+18:07:47.971 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)] rels [#32]
+18:07:47.971 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#236: Apply rule [EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)] to [rel#32:BindableTableScan.BINDABLE.[](table=[TEST, STUDENTS.json])]
+18:07:47.971 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#35 via EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)
+18:07:47.971 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#236 generated 1 successors: [rel#35:EnumerableInterpreter.ENUMERABLE.[](input=BindableTableScan#32)]
+18:07:47.971 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@28b8f98a; COST = {100.0 rows, 101.0 cpu, 0.0 io}
+18:07:47.971 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - Rule Attempts Info for VolcanoPlanner
+18:07:47.972 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - 
+Rules                                                                   Attempts           Time (us)
+ProjectRemoveRule                                                              1                 763
+BindableTableScanRule                                                          1                 699
+EnumerableTableScanRule(in:NONE,out:ENUMERABLE)                                1                 462
+EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)                          1                 422
+ExpandConversionRule                                                           1                 169
+* Total                                                                        5               2,515
+
+18:07:47.972 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Cheapest plan:
+EnumerableTableScan(table=[[TEST, STUDENTS.json]]): rowcount = 100.0, cumulative cost = {100.0 rows, 101.0 cpu, 0.0 io}, id = 34
+
+18:07:47.972 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Provenance:
+rel#34:EnumerableTableScan.ENUMERABLE.[](table=[TEST, STUDENTS.json])
+  call#137 rule [EnumerableTableScanRule(in:NONE,out:ENUMERABLE)]
+    rel#20:LogicalTableScan.NONE.[](table=[TEST, STUDENTS.json])
+      no parent
+
+18:07:47.973 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - Rule Attempts Info for HepPlanner
+18:07:47.974 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - 
+Rules                                                                   Attempts           Time (us)
+* Total                                                                        0                   0
+
+18:07:47.974 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - For final plan, using rel#34:EnumerableTableScan.ENUMERABLE.[](table=[TEST, STUDENTS.json])
+18:07:47.975 [main] DEBUG org.apache.calcite.prepare.Prepare - Plan after physical tweaks: EnumerableTableScan(table=[[TEST, STUDENTS.json]]): rowcount = 100.0, cumulative cost = {100.0 rows, 101.0 cpu, 0.0 io}, id = 34
+

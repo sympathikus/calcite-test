@@ -1,21 +1,17 @@
-package de.paulsikorski.calcitetest;
+package de.paulsikorski.calcitetest.model;
 
 import java.io.File;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Optional;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 import org.apache.calcite.schema.Table;
-import org.apache.calcite.util.Source;
 import org.apache.calcite.util.Sources;
-import org.apache.calcite.util.Util;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.google.common.collect.ImmutableMap;
-import com.google.common.collect.Maps;
 
 /** 
  * Supplies a mapping from table name to actual {@link Table} object based on files in the given directory.

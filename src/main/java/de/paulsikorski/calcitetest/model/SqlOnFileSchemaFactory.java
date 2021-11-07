@@ -1,21 +1,15 @@
-package de.paulsikorski.calcitetest;
+package de.paulsikorski.calcitetest.model;
 
 import java.io.File;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Stream;
 
 import org.apache.calcite.model.ModelHandler;
 import org.apache.calcite.schema.Schema;
 import org.apache.calcite.schema.SchemaFactory;
 import org.apache.calcite.schema.SchemaPlus;
 import org.apache.calcite.schema.Table;
-import org.apache.calcite.util.Source;
-import org.apache.calcite.util.Sources;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
-import com.google.common.collect.ImmutableMap;
 
 public class SqlOnFileSchemaFactory implements SchemaFactory {
 

@@ -1,4 +1,4 @@
-package de.paulsikorski.calcitetest;
+package de.paulsikorski.calcitetest.model;
 
 import java.util.ArrayList;
 import java.util.Arrays;

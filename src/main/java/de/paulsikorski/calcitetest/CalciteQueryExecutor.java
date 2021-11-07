@@ -4,7 +4,6 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.function.Consumer;
 
 import org.apache.calcite.jdbc.CalciteConnection;
 import org.apache.logging.log4j.LogManager;
