@@ -25,7 +25,6 @@ public class JsonEnumerator implements Enumerator<@Nullable Object[]>{
 	private final Enumerator<@Nullable Object[]> enumerator;
 
 	public JsonEnumerator(List<? extends @Nullable Object> list) {
-		System.out.println("Enumerating");
 		List<@Nullable Object[]> objs = new ArrayList<>();
 		for (Object obj : list) {
 			if (obj instanceof Collection) {
@@ -39,104 +38,104 @@ public class JsonEnumerator implements Enumerator<@Nullable Object[]>{
 		    }
 		}
 		enumerator = Linq4j.enumerator(objs);
-  }
+	}
 
 	  /** Deduces the names and types of a table's columns by reading the first line
 	   * of a JSON file. */
-	  static JsonDataConverter deduceRowType(RelDataTypeFactory typeFactory, Source source) {
-	    final ObjectMapper objectMapper = new ObjectMapper();
-	    List<Object> list;
-	    LinkedHashMap<String, Object> jsonFieldMap = new LinkedHashMap<>(1);
-	    Object jsonObj = null;
-	    try {
-	      objectMapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true)
-	          .configure(JsonParser.Feature.ALLOW_SINGLE_QUOTES, true)
-	          .configure(JsonParser.Feature.ALLOW_COMMENTS, true);
+	 public static JsonDataConverter deduceRowType(RelDataTypeFactory typeFactory, Source source) {
+		 final ObjectMapper objectMapper = new ObjectMapper();
+		 List<Object> list;
+		 LinkedHashMap<String, Object> jsonFieldMap = new LinkedHashMap<>(1);
+		 Object jsonObj = null;
+		 try {
+			 objectMapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true)
+	         .configure(JsonParser.Feature.ALLOW_SINGLE_QUOTES, true)
+	         .configure(JsonParser.Feature.ALLOW_COMMENTS, true);
 
-	      if ("file".equals(source.protocol()) && source.file().exists()) {
-	        //noinspection unchecked
-	        jsonObj = objectMapper.readValue(source.file(), Object.class);
-	      } else if (Arrays.asList("http", "https", "ftp").contains(source.protocol())) {
-	        //noinspection unchecked
-	        jsonObj = objectMapper.readValue(source.url(), Object.class);
-	      } else {
-	        jsonObj = objectMapper.readValue(source.reader(), Object.class);
-	      }
+			 if ("file".equals(source.protocol()) && source.file().exists()) {
+				 //noinspection unchecked
+				 jsonObj = objectMapper.readValue(source.file(), Object.class);
+			 } else if (Arrays.asList("http", "https", "ftp").contains(source.protocol())) {
+		        //noinspection unchecked
+				 jsonObj = objectMapper.readValue(source.url(), Object.class);
+		     } else {
+		    	 jsonObj = objectMapper.readValue(source.reader(), Object.class);
+		      }
 
-	    } catch (MismatchedInputException e) {
-	      if (!e.getMessage().contains("No content")) {
-	        throw new RuntimeException("Couldn't read " + source, e);
-	      }
-	    } catch (Exception e) {
-	      throw new RuntimeException("Couldn't read " + source, e);
-	    }
+		 } catch (MismatchedInputException e) {
+			 if (!e.getMessage().contains("No content")) {
+				 throw new RuntimeException("Couldn't read " + source, e);
+			 }
+		 } catch (Exception e) {
+			 throw new RuntimeException("Couldn't read " + source, e);
+		 }
 
-	    if (jsonObj == null) {
-	      list = new ArrayList<>();
-	      jsonFieldMap.put("EmptyFileHasNoColumns", Boolean.TRUE);
-	    } else if (jsonObj instanceof Collection) {
-	      //noinspection unchecked
-	      list = (List<Object>) jsonObj;
-	      //noinspection unchecked
-	      jsonFieldMap = (LinkedHashMap) list.get(0);
-	    } else if (jsonObj instanceof Map) {
-	      //noinspection unchecked
-	      jsonFieldMap = (LinkedHashMap) jsonObj;
-	      //noinspection unchecked
-	      list = new ArrayList(((LinkedHashMap) jsonObj).values());
-	    } else {
-	      jsonFieldMap.put("line", jsonObj);
-	      list = new ArrayList<>();
-	      list.add(0, jsonObj);
-	    }
+		 if (jsonObj == null) {
+			 list = new ArrayList<>();
+			 jsonFieldMap.put("EmptyFileHasNoColumns", Boolean.TRUE);
+		 } else if (jsonObj instanceof Collection) {
+			 //noinspection unchecked
+			 list = (List<Object>) jsonObj;
+			 //noinspection unchecked
+			 jsonFieldMap = (LinkedHashMap) list.get(0);
+		 } else if (jsonObj instanceof Map) {
+			 //noinspection unchecked
+			 jsonFieldMap = (LinkedHashMap) jsonObj;
+			 //noinspection unchecked
+			 list = new ArrayList(((LinkedHashMap) jsonObj).values());
+		 } else {
+			 jsonFieldMap.put("line", jsonObj);
+			 list = new ArrayList<>();
+			 list.add(0, jsonObj);
+		 }
 
-	    final List<RelDataType> types = new ArrayList<RelDataType>(jsonFieldMap.size());
-	    final List<String> names = new ArrayList<String>(jsonFieldMap.size());
+		 final List<RelDataType> types = new ArrayList<RelDataType>(jsonFieldMap.size());
+		 final List<String> names = new ArrayList<String>(jsonFieldMap.size());
 
-	    for (Object key : jsonFieldMap.keySet()) {
-	      final RelDataType type = typeFactory.createJavaType(jsonFieldMap.get(key).getClass());
-	      names.add(key.toString());
-	      types.add(type);
-	    }
+		 for (Object key : jsonFieldMap.keySet()) {
+			 final RelDataType type = typeFactory.createJavaType(jsonFieldMap.get(key).getClass());
+			 names.add(key.toString());
+			 types.add(type);
+		 }
 
-	    RelDataType relDataType = typeFactory.createStructType(Pair.zip(names, types));
-	    return new JsonDataConverter(relDataType, list);
-	  }
+		 RelDataType relDataType = typeFactory.createStructType(Pair.zip(names, types));
+		 return new JsonDataConverter(relDataType, list);
+	 }
 
-	  @Override public Object[] current() {
-	    return enumerator.current();
-	  }
+	 @Override public Object[] current() {
+		 return enumerator.current();
+	 }
 
-	  @Override public boolean moveNext() {
-	    return enumerator.moveNext();
-	  }
+	 @Override public boolean moveNext() {
+		 return enumerator.moveNext();
+	 }
 
-	  @Override public void reset() {
-	    enumerator.reset();
-	  }
+	 @Override public void reset() {
+		 enumerator.reset();
+	 }
 
-	  @Override public void close() {
-	    enumerator.close();
-	  }
+	 @Override public void close() {
+		 enumerator.close();
+	 }
 
-	  /**
-	   * Json data and relDataType Converter.
-	   */
-	  static class JsonDataConverter {
-	    private final RelDataType relDataType;
-	    private final List<Object> dataList;
+	 /**
+	  * Json data and relDataType Converter.
+	  */
+	 static class JsonDataConverter {
+		 private final RelDataType relDataType;
+		 private final List<Object> dataList;
 
-	    private JsonDataConverter(RelDataType relDataType, List<Object> dataList) {
-	      this.relDataType = relDataType;
-	      this.dataList = dataList;
-	    }
+		 private JsonDataConverter(RelDataType relDataType, List<Object> dataList) {
+			 this.relDataType = relDataType;
+			 this.dataList = dataList;
+		 }
 
-	    RelDataType getRelDataType() {
-	      return relDataType;
-	    }
+		 RelDataType getRelDataType() {
+			 return relDataType;
+		 }
 
-	    List<Object> getDataList() {
-	      return dataList;
-	    }
-	  }
+		 List<Object> getDataList() {
+			 return dataList;
+		 }
+	 }
 }
