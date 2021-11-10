@@ -15,6 +15,10 @@ muss der Name der Tabelle (also der Datei) mit "" angegeben werden
 Eine Beispielquery sieht dann so aus:  
 
 **select * from "STUDENTS.json"**
+
+Zum Verlassen des CLI koennen folgende commands benutzt werden:  
+  
+**quit**, **q**, **exit**
  
 
 
