@@ -250,3 +250,97 @@ Rules                                                                   Attempts
 18:07:47.974 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - For final plan, using rel#34:EnumerableTableScan.ENUMERABLE.[](table=[TEST, STUDENTS.json])
 18:07:47.975 [main] DEBUG org.apache.calcite.prepare.Prepare - Plan after physical tweaks: EnumerableTableScan(table=[[TEST, STUDENTS.json]]): rowcount = 100.0, cumulative cost = {100.0 rows, 101.0 cpu, 0.0 io}, id = 34
 
+16:03:46.479 [main] INFO  de.paulsikorski.calcitetest.model.SqlOnFileSchemaFactory - Constructing Schema TEST
+16:03:46.484 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapBuilder - Building tables from files in base directory src\test\resources\test
+16:03:46.484 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapBuilder - Found 7 files in directory src\test\resources\test
+16:03:46.488 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\DATE.csv
+16:03:46.493 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table DATE.csv from csv file
+16:03:46.500 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\DEPTS.json
+16:03:46.501 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table DEPTS.json from json file
+16:03:46.501 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EMPS.json
+16:03:46.502 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table EMPS.json from json file
+16:03:46.502 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EMPTY.json
+16:03:46.503 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table EMPTY.json from json file
+16:03:46.503 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\SDEPTS.json
+16:03:46.503 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table SDEPTS.json from json file
+16:03:46.503 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\STUDENTS.json
+16:03:46.504 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table STUDENTS.json from json file
+16:03:46.504 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\TOPICS.json
+16:03:46.504 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table TOPICS.json from json file
+16:03:46.548 [main] INFO  de.paulsikorski.calcitetest.CommandLineToolLauncher - Connected to Sql-On-File
+16:04:06.494 [main] DEBUG org.apache.calcite.sql2rel - Plan after converting SqlNode to RelNode
+LogicalProject(NAME=[$0], MATNR=[$1])
+  LogicalTableScan(table=[[TEST, STUDENTS.json]])
+
+16:04:06.532 [main] DEBUG org.apache.calcite.sql2rel - Plan after trimming unused fields
+LogicalProject(NAME=[$0], MATNR=[$1])
+  LogicalTableScan(table=[[TEST, STUDENTS.json]])
+
+16:04:06.533 [main] DEBUG org.apache.calcite.sql2rel - Plan after trimming unused fields
+LogicalProject(NAME=[$0], MATNR=[$1])
+  LogicalTableScan(table=[[TEST, STUDENTS.json]])
+
+16:04:06.559 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - Rule Attempts Info for HepPlanner
+16:04:06.562 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - 
+Rules                                                                   Attempts           Time (us)
+* Total                                                                        0                   0
+
+16:04:06.563 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - For final plan, using rel#4:LogicalProject.NONE.[](input=HepRelVertex#3,inputs=0..1)
+16:04:06.564 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - For final plan, using rel#1:LogicalTableScan.NONE.[](table=[TEST, STUDENTS.json])
+16:04:06.567 [main] DEBUG org.apache.calcite.sql2rel - Plan after trimming unused fields
+LogicalProject(NAME=[$0], MATNR=[$1])
+  LogicalTableScan(table=[[TEST, STUDENTS.json]])
+
+16:04:06.706 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@b14b60a; COST = {inf}
+16:04:06.707 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [ProjectRemoveRule] rels [#7]
+16:04:06.707 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#24: Apply rule [ProjectRemoveRule] to [rel#7:LogicalProject.NONE.[](input=RelSubset#6,inputs=0..1)]
+16:04:06.711 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#6 via ProjectRemoveRule
+16:04:06.715 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#24 generated 1 successors: [rel#6:RelSubset#0.NONE.[]]
+16:04:06.715 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@b14b60a; COST = {inf}
+16:04:06.716 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [BindableTableScanRule] rels [#1]
+16:04:06.716 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#15: Apply rule [BindableTableScanRule] to [rel#1:LogicalTableScan.NONE.[](table=[TEST, STUDENTS.json])]
+16:04:06.721 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#13 via BindableTableScanRule
+16:04:06.724 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#15 generated 1 successors: [rel#13:BindableTableScan.BINDABLE.[](table=[TEST, STUDENTS.json])]
+16:04:06.725 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@b14b60a; COST = {inf}
+16:04:06.725 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [EnumerableTableScanRule(in:NONE,out:ENUMERABLE)] rels [#1]
+16:04:06.725 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#17: Apply rule [EnumerableTableScanRule(in:NONE,out:ENUMERABLE)] to [rel#1:LogicalTableScan.NONE.[](table=[TEST, STUDENTS.json])]
+16:04:06.733 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#15 via EnumerableTableScanRule(in:NONE,out:ENUMERABLE)
+16:04:06.734 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#17 generated 1 successors: [rel#15:EnumerableTableScan.ENUMERABLE.[](table=[TEST, STUDENTS.json])]
+16:04:06.736 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@b14b60a; COST = {100.0 rows, 101.0 cpu, 0.0 io}
+16:04:06.736 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Skip match: rule [EnumerableProjectRule(in:NONE,out:ENUMERABLE)] rels [#7]
+16:04:06.736 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [ExpandConversionRule] rels [#11]
+16:04:06.736 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#56: Apply rule [ExpandConversionRule] to [rel#11:AbstractConverter.ENUMERABLE.[](input=RelSubset#6,convention=ENUMERABLE,sort=[])]
+16:04:06.738 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#56 generated 0 successors.
+16:04:06.738 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@b14b60a; COST = {100.0 rows, 101.0 cpu, 0.0 io}
+16:04:06.739 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)] rels [#13]
+16:04:06.739 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#116: Apply rule [EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)] to [rel#13:BindableTableScan.BINDABLE.[](table=[TEST, STUDENTS.json])]
+16:04:06.739 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#16 via EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)
+16:04:06.773 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#116 generated 1 successors: [rel#16:EnumerableInterpreter.ENUMERABLE.[](input=BindableTableScan#13)]
+16:04:06.773 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@b14b60a; COST = {100.0 rows, 101.0 cpu, 0.0 io}
+16:04:06.773 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - Rule Attempts Info for VolcanoPlanner
+16:04:06.776 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - 
+Rules                                                                   Attempts           Time (us)
+EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)                          1              33,851
+EnumerableTableScanRule(in:NONE,out:ENUMERABLE)                                1               8,809
+BindableTableScanRule                                                          1               6,530
+ProjectRemoveRule                                                              1               5,460
+ExpandConversionRule                                                           1               1,976
+* Total                                                                        5              56,626
+
+16:04:06.796 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Cheapest plan:
+EnumerableTableScan(table=[[TEST, STUDENTS.json]]): rowcount = 100.0, cumulative cost = {100.0 rows, 101.0 cpu, 0.0 io}, id = 15
+
+16:04:06.799 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Provenance:
+rel#15:EnumerableTableScan.ENUMERABLE.[](table=[TEST, STUDENTS.json])
+  call#17 rule [EnumerableTableScanRule(in:NONE,out:ENUMERABLE)]
+    rel#1:LogicalTableScan.NONE.[](table=[TEST, STUDENTS.json])
+      no parent
+
+16:04:06.800 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - Rule Attempts Info for HepPlanner
+16:04:06.800 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - 
+Rules                                                                   Attempts           Time (us)
+* Total                                                                        0                   0
+
+16:04:06.801 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - For final plan, using rel#15:EnumerableTableScan.ENUMERABLE.[](table=[TEST, STUDENTS.json])
+16:04:06.801 [main] DEBUG org.apache.calcite.prepare.Prepare - Plan after physical tweaks: EnumerableTableScan(table=[[TEST, STUDENTS.json]]): rowcount = 100.0, cumulative cost = {100.0 rows, 101.0 cpu, 0.0 io}, id = 15
+
