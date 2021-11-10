@@ -1,15 +1,21 @@
-# calcite-test
-Zum Starten die Klasse TestLauncher ausführen. Diese beinhaltet auch die durchgeführten Queries, also ist dies die erste Anlaufstelle, wenn ihr
-einfach mal damit rumspielen wollt. 
-Zudem befinden sich im Verzeichnis "src/main/resources" zwei verschieden model-files, die unterschiedliche Tabellen auf Basis verschiedener Dateiverzeichnissen aufbauen.
-Die entsprechenden Daten finden sich unter "src/main/resources/test" und "src/main/resources/sales-json".
+# Calcite File Example
 
-Wer sich anschauen möchte, welche Schritte notwendig sind um einen eigenen Adapter zu schreiben, dem kann ich sowohl das Tutorial auf https://calcite.apache.org/docs/tutorial.html,
-als auch den Source-Code dazu https://github.com/apache/calcite/tree/master/example/csv ans Herz legen. 
-Unter https://calcite.apache.org/docs/tutorial.html findet man den CSV-Adapter, an dem die wichtigsten Schritte zum implementieren eines eigenen Adapters beschrieben werden.
-Wer sich die anderen, auf https://calcite.apache.org/docs/adapter.html erwähnten Adapter anschauen möchte, der findet diese hier: https://github.com/apache/calcite. 
-Insbesondere der FileAdapter könnte für unseren Fall von Interesse sein.
+Dieses Projekt zeigt, wie Apache Calcite genutzt werden kann um SQL-Queries auf JSON- und CSV-Datein auszufuehren.
+Weitere Informationen und Tutorials zu Apache Calcite findet man auf ihrer [Homepage](https://calcite.apache.org/). Den dazugehoerigen Source-Code findet man auf [github](https://github.com/apache/calcite).
 
+Die model.json Datei in *src/test/resources* gibt das Verzeichnis an, in dem Apache Calcite nach Dateien sucht. Diese zeigt aktuell auf den Ordner *src/test/resources/test*, der bereits einige Beispieldatein beinhaltet.
+Natuerlich kann dieser um eigene JSON- und CSV-Dateien erweitert werden. 
+
+Zum Starten des Beispiels muss die Klasse TestLauncher ausgefuehrt werden. Diese bereitet Apache Calcite mithilfe der bereitgestellten model.json Datei vor und startet ein rudimentaeres Command-Line-Interface.
+Nach erfolgreichem Hochfahren kann eine Query eingegeben werden, wobei folgendes zu beachten ist:
+- getestet wurden bisher nur SELECT-Statements
+- die Tabellen tragen den Namen der entsprechenden CSV/JSON-Datei. Da EXAMPLE.json in SQL kein Tabellenname, sondern ein Zugriff auf die Spalte 'json' der Tabelle 'EXAMPLE' ist, 
+muss der Name der Tabelle (also der Datei) mit "" angegeben werden
+
+Eine Beispielquery sieht dann so aus:  
+
+**select * from "STUDENTS.json"**
+ 
 
 
 
