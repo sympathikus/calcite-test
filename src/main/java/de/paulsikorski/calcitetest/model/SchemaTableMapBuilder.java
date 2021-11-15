@@ -50,6 +50,7 @@ public class SchemaTableMapBuilder implements Supplier<Map<String, Table>>{
 	    .filter(Optional::isPresent)
 	    .map(Optional::get)
 	    .forEach(builder::put);
+	    LOG.info("Builder Map {}", builder.build().keySet());
 	    return builder.build();
 	}
 

@@ -19,8 +19,7 @@ public class CalciteQueryExecutor {
 	}
 
 	public boolean executeStatement(String sqlQuery) {
-		try(Statement statement = calciteConnection.createStatement();
-				ResultSet selectStudentsResult = calciteConnection.createStatement().executeQuery(sqlQuery)) {
+		try(ResultSet selectStudentsResult = calciteConnection.createStatement().executeQuery(sqlQuery)) {
 				
 			final ResultSetMetaData rSMD = selectStudentsResult.getMetaData();
 			int columnsNumber2 = rSMD.getColumnCount();

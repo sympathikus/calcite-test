@@ -48,6 +48,25 @@ public class SchemaTableMapEntryBuilder implements Function<File, Optional<Entry
 			} else if(tableName.endsWith(".csv")) {
 				table = new CsvTable(fileSource);
 				LOG.info("Build table {} from csv file", tableName);
+			} else if(tableName.endsWith(".xlsx")) {
+				ExcelToCSV excelToCsv = new ExcelToCSV();
+				String newName = tableName.substring(0, tableName.length()-5);
+				newName = newName.concat(".csv");
+				String filePath = file.getAbsolutePath();
+		        filePath = filePath.substring(0, filePath.length()-tableName.length());
+		        filePath = filePath.concat(newName);
+				
+				try {
+					LOG.info("Creating CSV with new name {}", newName);
+					excelToCsv.excelToCSV(file, 0, filePath);
+				} catch (Exception e) {
+					LOG.info("failed to convert {} to CSV", tableName);
+					e.printStackTrace();
+				}
+				
+				File newFile = new File(filePath);
+				table = new CsvTable(Sources.of(newFile));
+				LOG.info("Builddd table {} from xlsx file", tableName);
 			} else {
 				LOG.info("No suitable adapter for file {} found", tableName);
 				return null;

@@ -13,7 +13,8 @@ public class SqlOnFileFileFilter implements FilenameFilter {
 	public boolean accept(File dir, String name) {
 		final String nameSansGz = trim(name, ".gz");
         return nameSansGz.endsWith(".csv")
-            || nameSansGz.endsWith(".json");
+            || nameSansGz.endsWith(".json")
+            || nameSansGz.endsWith(".xlsx");
 	}
 	
 	private String trim(String s, String suffix) {
