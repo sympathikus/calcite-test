@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import javax.annotation.Nullable;
 
@@ -27,11 +29,12 @@ public class ExcelToCSV {
 		
 	}
 	
+	/*
 	public StringBuffer getRows(XSSFSheet sheet) {
 		StringBuffer rowBuffer = new StringBuffer();
         Iterator<Row> rowIterator = sheet.iterator();
         
-     // skip header
+        // skips header
         if (rowIterator.hasNext()) {
         	rowIterator.next();
         }
@@ -40,7 +43,7 @@ public class ExcelToCSV {
             Row row = rowIterator.next();
             Iterator<Cell> cellIterator = row.cellIterator();
             
-            // skip index cell
+            // skips index cell
             if (cellIterator.hasNext()) {
             	cellIterator.next();
             }
@@ -96,14 +99,15 @@ public class ExcelToCSV {
                 }
             }
             
-            // start new line if next line is present
+            // start new line if next line is present and current line is not empty
             if(rowIterator.hasNext() && !is_empty) {
             	rowBuffer.append("\n");
             }
     	}
     	return rowBuffer;
 	}
-	
+	*/
+	/*
 	public StringBuffer getHeader(XSSFSheet sheet) {
 		
 		StringBuffer rowBuffer = new StringBuffer();
@@ -112,10 +116,9 @@ public class ExcelToCSV {
         if(rowIterator.hasNext()) {
         	
         	Row row = rowIterator.next();
-        	
         	Iterator<Cell> cellIterator = row.cellIterator();
         	
-        	// skip index cell
+        	// skips index cell
         	if (cellIterator.hasNext()) {
             	cellIterator.next();
             }
@@ -129,11 +132,11 @@ public class ExcelToCSV {
                         LOG.info("Appending String {}", cell.getStringCellValue());
                         break;
                     case NUMERIC:
-                        rowBuffer.append(cell.getNumericCellValue() + ":int");
+                        rowBuffer.append(cell.getNumericCellValue() + ":integer");
                         LOG.info("Appending Numeric {}", cell.getNumericCellValue());
                         break;
                     case BOOLEAN:
-                        rowBuffer.append(cell.getBooleanCellValue() + ":bool");
+                        rowBuffer.append(cell.getBooleanCellValue() + ":boolean");
                         break;
                     case BLANK:
                     	break;
@@ -148,11 +151,11 @@ public class ExcelToCSV {
                         LOG.info("Appending String {}", cell.getStringCellValue());
                         break;
                     case NUMERIC:
-                        rowBuffer.append(cell.getNumericCellValue() + ":int,");
+                        rowBuffer.append(cell.getNumericCellValue() + ":integer,");
                         LOG.info("Appending Numeric {}", cell.getNumericCellValue());
                         break;
                     case BOOLEAN:
-                        rowBuffer.append(cell.getBooleanCellValue() + ":bool,");
+                        rowBuffer.append(cell.getBooleanCellValue() + ":boolean,");
                         break;
                     case BLANK:
                     	break;
@@ -169,6 +172,7 @@ public class ExcelToCSV {
         }
         return rowBuffer;
 	}
+	*/
 	
 	
 	public void excelToCSV(File file, int sheetIdx, String path) throws Exception {
@@ -181,8 +185,12 @@ public class ExcelToCSV {
         FileOutputStream fos = new FileOutputStream(path);
         StringBuffer sb = new StringBuffer();
         
+        /*
         sb.append(getHeader(selSheet));
         sb.append(getRows(selSheet));
+		*/
+        
+        sb.append(processSheet(selSheet));
         
         LOG.info("String Buffer assumes the form {}", sb);
         fos.write(sb.toString().getBytes());
@@ -191,4 +199,76 @@ public class ExcelToCSV {
         workBook.close();
 	}
 	
+	public List<String> getHeaderTypes(XSSFSheet sheet) {
+		List <String> list = new ArrayList<>();		
+		Row row = sheet.getRow(1);
+		Iterator<Cell> cellIterator = row.cellIterator();
+		
+		while(cellIterator.hasNext()) {
+			Cell cell = cellIterator.next();
+			list.add(cell.getCellType().toString());
+		}
+		
+		return list;
+	}
+	
+	
+	public StringBuffer processSheet(XSSFSheet sheet) {
+		StringBuffer rowBuffer = new StringBuffer();
+		Iterator<Row> rowIterator = sheet.iterator();
+		boolean header = true;
+		boolean endOfLine;
+		List <String> headerTypes = getHeaderTypes(sheet);
+		
+		
+        
+        while (rowIterator.hasNext()) {
+            Row row = rowIterator.next();
+            Iterator<Cell> cellIterator = row.cellIterator();
+            
+            // skips index cell
+            if (cellIterator.hasNext()) {
+            	cellIterator.next();
+            }
+            
+            int index = 0;
+            boolean is_empty = true;
+            while (cellIterator.hasNext()) {
+                Cell cell = cellIterator.next();
+                endOfLine = cellIterator.hasNext() ? false : true;
+                
+                String suffix = header ? ":" + headerTypes.get(index) : "";
+        		suffix = endOfLine ? suffix + "" : suffix + ",";
+            	
+            	switch (cell.getCellType()) {
+                case STRING:
+                    rowBuffer.append(cell.getStringCellValue() + suffix);
+                    is_empty = false;
+                    break;
+                case NUMERIC:
+                	rowBuffer.append(cell.getNumericCellValue() + suffix);
+                    is_empty = false;
+                    break;
+                case BOOLEAN:
+                	rowBuffer.append(cell.getBooleanCellValue() + suffix);
+                	is_empty = false;
+                    break;
+                case BLANK:
+                	break;
+                default:
+                	rowBuffer.append(cell);
+                	LOG.info("Adding empty cells {}", cell);
+                	break;
+            	}
+            	index++;
+            }
+            
+            // start new line if next line is present and current line is not empty
+            if(rowIterator.hasNext() && !is_empty) {
+            	rowBuffer.append("\n");
+            }
+            header = false;
+    	}
+    	return rowBuffer;
+	}
 }

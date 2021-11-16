@@ -1,6 +1,8 @@
 package de.paulsikorski.calcitetest.model;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
@@ -51,10 +53,18 @@ public class SchemaTableMapEntryBuilder implements Function<File, Optional<Entry
 			} else if(tableName.endsWith(".xlsx")) {
 				ExcelToCSV excelToCsv = new ExcelToCSV();
 				String newName = tableName.substring(0, tableName.length()-5);
-				newName = newName.concat(".csv");
 				String filePath = file.getAbsolutePath();
-		        filePath = filePath.substring(0, filePath.length()-tableName.length());
-		        filePath = filePath.concat(newName);
+				String newNameCsv = newName.concat(".csv");
+		        String filePathParent = filePath.substring(0, filePath.length()-tableName.length());
+		        
+		        filePath = filePathParent.concat(newNameCsv);
+		        
+		        // renames file such that existing files wont be overwritten
+		        while(Files.exists(Paths.get(filePath))){
+		        	newName = newName.concat("_1");
+		        	newNameCsv = newName.concat(".csv");
+		        	filePath = filePathParent.concat(newNameCsv);	
+		        }
 				
 				try {
 					LOG.info("Creating CSV with new name {}", newName);
@@ -66,6 +76,8 @@ public class SchemaTableMapEntryBuilder implements Function<File, Optional<Entry
 				
 				File newFile = new File(filePath);
 				table = new CsvTable(Sources.of(newFile));
+				// deletes excel conversion
+				newFile.deleteOnExit();
 				LOG.info("Builddd table {} from xlsx file", tableName);
 			} else {
 				LOG.info("No suitable adapter for file {} found", tableName);
