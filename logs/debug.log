@@ -344,3 +344,980 @@ Rules                                                                   Attempts
 15:47:38.351 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - For final plan, using rel#15:EnumerableTableScan.ENUMERABLE.[](table=[TEST, EX.xlsx])
 15:47:38.351 [main] DEBUG org.apache.calcite.prepare.Prepare - Plan after physical tweaks: EnumerableTableScan(table=[[TEST, EX.xlsx]]): rowcount = 100.0, cumulative cost = {100.0 rows, 101.0 cpu, 0.0 io}, id = 15
 
+16:09:30.183 [main] INFO  de.paulsikorski.calcitetest.model.SqlOnFileSchemaFactory - Constructing Schema TEST
+16:09:30.186 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapBuilder - Building tables from files in base directory src\test\resources\test
+16:09:30.186 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapBuilder - Found 9 files in directory src\test\resources\test
+16:09:30.189 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\DATE.csv
+16:09:30.191 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table DATE.csv from csv file
+16:09:30.194 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\DEPTS.json
+16:09:30.195 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table DEPTS.json from json file
+16:09:30.195 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EMPS.json
+16:09:30.195 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table EMPS.json from json file
+16:09:30.195 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EMPTY.json
+16:09:30.195 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table EMPTY.json from json file
+16:09:30.195 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EX.csv
+16:09:30.196 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table EX.csv from csv file
+16:09:30.196 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EX.xlsx
+16:09:30.196 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Creating CSV with new name EX.csv
+16:09:30.196 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - File path is C:\Users\thies\Desktop\Calcite\calcite-test\src\test\resources\test\EX.xlsx
+16:09:30.279 [main] DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+16:09:30.281 [main] DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+16:09:30.635 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String First Name
+16:09:30.635 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Last Name
+16:09:30.635 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Gender
+16:09:30.636 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Country
+16:09:30.636 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Age
+16:09:30.636 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Date
+16:09:30.636 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Id
+16:09:30.637 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Dulce
+16:09:30.637 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Abril
+16:09:30.637 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:09:30.637 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:09:30.637 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 32.0
+16:09:30.637 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 15/10/2017
+16:09:30.637 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 1562.0
+16:09:30.637 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Mara
+16:09:30.638 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Hashimoto
+16:09:30.638 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:09:30.638 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Great Britain
+16:09:30.638 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 25.0
+16:09:30.638 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 16/08/2016
+16:09:30.639 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 1582.0
+16:09:30.639 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Philip
+16:09:30.639 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Gent
+16:09:30.639 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Male
+16:09:30.639 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String France
+16:09:30.639 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 36.0
+16:09:30.639 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 21/05/2015
+16:09:30.639 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2587.0
+16:09:30.639 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Kathleen
+16:09:30.640 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Hanner
+16:09:30.640 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:09:30.640 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:09:30.640 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 25.0
+16:09:30.640 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 15/10/2017
+16:09:30.640 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 3549.0
+16:09:30.640 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Nereida
+16:09:30.641 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Magwood
+16:09:30.641 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:09:30.641 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:09:30.641 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 58.0
+16:09:30.641 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 16/08/2016
+16:09:30.641 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2468.0
+16:09:30.641 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Gaston
+16:09:30.641 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Brumm
+16:09:30.642 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Male
+16:09:30.642 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:09:30.642 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 24.0
+16:09:30.642 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 21/05/2015
+16:09:30.642 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2554.0
+16:09:30.642 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Etta
+16:09:30.642 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Hurn
+16:09:30.642 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:09:30.642 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Great Britain
+16:09:30.643 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 56.0
+16:09:30.643 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 15/10/2017
+16:09:30.643 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 3598.0
+16:09:30.643 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Earlean
+16:09:30.643 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Melgar
+16:09:30.643 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:09:30.643 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:09:30.643 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 27.0
+16:09:30.643 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 16/08/2016
+16:09:30.644 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2456.0
+16:09:30.644 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Vincenza
+16:09:30.644 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Weiland
+16:09:30.644 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:09:30.644 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:09:30.644 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 40.0
+16:09:30.644 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 21/05/2015
+16:09:30.644 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 6548.0
+16:09:30.645 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Builddd table EX.xlsx from xlsx file
+16:09:30.645 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\SDEPTS.json
+16:09:30.645 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table SDEPTS.json from json file
+16:09:30.645 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\STUDENTS.json
+16:09:30.646 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table STUDENTS.json from json file
+16:09:30.646 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\TOPICS.json
+16:09:30.646 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table TOPICS.json from json file
+16:09:30.648 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapBuilder - Builder Map [DATE.csv, DEPTS.json, EMPS.json, EMPTY.json, EX.csv, EX.xlsx, SDEPTS.json, STUDENTS.json, TOPICS.json]
+16:09:30.664 [main] INFO  de.paulsikorski.calcitetest.CommandLineToolLauncher - Connected to Sql-On-File
+16:26:52.527 [main] INFO  de.paulsikorski.calcitetest.model.SqlOnFileSchemaFactory - Constructing Schema TEST
+16:26:52.530 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapBuilder - Building tables from files in base directory src\test\resources\test
+16:26:52.531 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapBuilder - Found 9 files in directory src\test\resources\test
+16:26:52.533 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\DATE.csv
+16:26:52.535 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table DATE.csv from csv file
+16:26:52.538 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\DEPTS.json
+16:26:52.538 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table DEPTS.json from json file
+16:26:52.538 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EMPS.json
+16:26:52.539 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table EMPS.json from json file
+16:26:52.539 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EMPTY.json
+16:26:52.539 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table EMPTY.json from json file
+16:26:52.539 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EX.csv
+16:26:52.539 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table EX.csv from csv file
+16:26:52.539 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EX.xlsx
+16:26:52.540 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Creating CSV with new name EX.csv
+16:26:52.540 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - File path is C:\Users\thies\Desktop\Calcite\calcite-test\src\test\resources\test\EX.xlsx
+16:26:52.642 [main] DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+16:26:52.644 [main] DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+16:26:53.016 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String First Name
+16:26:53.016 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Last Name
+16:26:53.017 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Gender
+16:26:53.017 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Country
+16:26:53.017 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Age
+16:26:53.017 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Date
+16:26:53.018 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Id
+16:26:53.018 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Dulce
+16:26:53.018 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Abril
+16:26:53.018 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:26:53.018 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:26:53.019 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 32.0
+16:26:53.019 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 15/10/2017
+16:26:53.019 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 1562.0
+16:26:53.019 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Mara
+16:26:53.020 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Hashimoto
+16:26:53.020 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:26:53.020 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Great Britain
+16:26:53.021 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 25.0
+16:26:53.021 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 16/08/2016
+16:26:53.021 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 1582.0
+16:26:53.021 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Philip
+16:26:53.021 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Gent
+16:26:53.021 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Male
+16:26:53.021 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String France
+16:26:53.021 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 36.0
+16:26:53.022 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 21/05/2015
+16:26:53.022 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2587.0
+16:26:53.022 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Kathleen
+16:26:53.022 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Hanner
+16:26:53.022 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:26:53.022 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:26:53.022 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 25.0
+16:26:53.023 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 15/10/2017
+16:26:53.023 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 3549.0
+16:26:53.023 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Nereida
+16:26:53.023 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Magwood
+16:26:53.023 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:26:53.023 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:26:53.023 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 58.0
+16:26:53.024 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 16/08/2016
+16:26:53.024 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2468.0
+16:26:53.024 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Gaston
+16:26:53.024 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Brumm
+16:26:53.024 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Male
+16:26:53.024 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:26:53.025 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 24.0
+16:26:53.025 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 21/05/2015
+16:26:53.025 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2554.0
+16:26:53.025 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Etta
+16:26:53.025 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Hurn
+16:26:53.025 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:26:53.025 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Great Britain
+16:26:53.025 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 56.0
+16:26:53.025 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 15/10/2017
+16:26:53.026 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 3598.0
+16:26:53.026 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Earlean
+16:26:53.026 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Melgar
+16:26:53.026 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:26:53.026 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:26:53.026 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 27.0
+16:26:53.026 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 16/08/2016
+16:26:53.027 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2456.0
+16:26:53.027 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Vincenza
+16:26:53.027 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Weiland
+16:26:53.027 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:26:53.027 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:26:53.027 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 40.0
+16:26:53.027 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 21/05/2015
+16:26:53.028 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 6548.0
+16:26:53.028 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Builddd table EX.xlsx from xlsx file
+16:26:53.028 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\SDEPTS.json
+16:26:53.029 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table SDEPTS.json from json file
+16:26:53.029 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\STUDENTS.json
+16:26:53.029 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table STUDENTS.json from json file
+16:26:53.029 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\TOPICS.json
+16:26:53.029 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table TOPICS.json from json file
+16:26:53.031 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapBuilder - Builder Map [DATE.csv, DEPTS.json, EMPS.json, EMPTY.json, EX.csv, EX.xlsx, SDEPTS.json, STUDENTS.json, TOPICS.json]
+16:26:53.063 [main] INFO  de.paulsikorski.calcitetest.CommandLineToolLauncher - Connected to Sql-On-File
+16:32:03.951 [main] DEBUG org.apache.calcite.sql2rel - Plan after converting SqlNode to RelNode
+LogicalProject(First Name=[$0], Last Name=[$1], Gender=[$2], Country=[$3], Age=[$4], Date=[$5], Id=[$6])
+  LogicalTableScan(table=[[TEST, EX.xlsx]])
+
+16:32:03.967 [main] DEBUG org.apache.calcite.sql2rel - Plan after trimming unused fields
+LogicalProject(First Name=[$0], Last Name=[$1], Gender=[$2], Country=[$3], Age=[$4], Date=[$5], Id=[$6])
+  LogicalTableScan(table=[[TEST, EX.xlsx]])
+
+16:32:03.967 [main] DEBUG org.apache.calcite.sql2rel - Plan after trimming unused fields
+LogicalProject(First Name=[$0], Last Name=[$1], Gender=[$2], Country=[$3], Age=[$4], Date=[$5], Id=[$6])
+  LogicalTableScan(table=[[TEST, EX.xlsx]])
+
+16:32:03.976 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - Rule Attempts Info for HepPlanner
+16:32:03.977 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - 
+Rules                                                                   Attempts           Time (us)
+* Total                                                                        0                   0
+
+16:32:03.977 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - For final plan, using rel#4:LogicalProject.NONE.[](input=HepRelVertex#3,inputs=0..6)
+16:32:03.978 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - For final plan, using rel#1:LogicalTableScan.NONE.[](table=[TEST, EX.xlsx])
+16:32:03.979 [main] DEBUG org.apache.calcite.sql2rel - Plan after trimming unused fields
+LogicalProject(First Name=[$0], Last Name=[$1], Gender=[$2], Country=[$3], Age=[$4], Date=[$5], Id=[$6])
+  LogicalTableScan(table=[[TEST, EX.xlsx]])
+
+16:32:04.041 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@43588265; COST = {inf}
+16:32:04.041 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [ProjectRemoveRule] rels [#7]
+16:32:04.042 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#24: Apply rule [ProjectRemoveRule] to [rel#7:LogicalProject.NONE.[](input=RelSubset#6,inputs=0..6)]
+16:32:04.043 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#6 via ProjectRemoveRule
+16:32:04.045 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#24 generated 1 successors: [rel#6:RelSubset#0.NONE.[]]
+16:32:04.045 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@43588265; COST = {inf}
+16:32:04.045 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [BindableTableScanRule] rels [#1]
+16:32:04.045 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#15: Apply rule [BindableTableScanRule] to [rel#1:LogicalTableScan.NONE.[](table=[TEST, EX.xlsx])]
+16:32:04.049 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#13 via BindableTableScanRule
+16:32:04.051 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#15 generated 1 successors: [rel#13:BindableTableScan.BINDABLE.[](table=[TEST, EX.xlsx])]
+16:32:04.051 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@43588265; COST = {inf}
+16:32:04.051 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [EnumerableTableScanRule(in:NONE,out:ENUMERABLE)] rels [#1]
+16:32:04.051 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#17: Apply rule [EnumerableTableScanRule(in:NONE,out:ENUMERABLE)] to [rel#1:LogicalTableScan.NONE.[](table=[TEST, EX.xlsx])]
+16:32:04.060 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#15 via EnumerableTableScanRule(in:NONE,out:ENUMERABLE)
+16:32:04.061 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#17 generated 1 successors: [rel#15:EnumerableTableScan.ENUMERABLE.[](table=[TEST, EX.xlsx])]
+16:32:04.061 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@43588265; COST = {100.0 rows, 101.0 cpu, 0.0 io}
+16:32:04.061 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Skip match: rule [EnumerableProjectRule(in:NONE,out:ENUMERABLE)] rels [#7]
+16:32:04.061 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [ExpandConversionRule] rels [#11]
+16:32:04.061 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#56: Apply rule [ExpandConversionRule] to [rel#11:AbstractConverter.ENUMERABLE.[](input=RelSubset#6,convention=ENUMERABLE,sort=[])]
+16:32:04.062 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#56 generated 0 successors.
+16:32:04.062 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@43588265; COST = {100.0 rows, 101.0 cpu, 0.0 io}
+16:32:04.062 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)] rels [#13]
+16:32:04.062 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#116: Apply rule [EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)] to [rel#13:BindableTableScan.BINDABLE.[](table=[TEST, EX.xlsx])]
+16:32:04.063 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#16 via EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)
+16:32:04.075 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#116 generated 1 successors: [rel#16:EnumerableInterpreter.ENUMERABLE.[](input=BindableTableScan#13)]
+16:32:04.075 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@43588265; COST = {100.0 rows, 101.0 cpu, 0.0 io}
+16:32:04.075 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - Rule Attempts Info for VolcanoPlanner
+16:32:04.076 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - 
+Rules                                                                   Attempts           Time (us)
+EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)                          1              12,459
+EnumerableTableScanRule(in:NONE,out:ENUMERABLE)                                1               9,803
+BindableTableScanRule                                                          1               5,754
+ProjectRemoveRule                                                              1               2,725
+ExpandConversionRule                                                           1                 918
+* Total                                                                        5              31,659
+
+16:32:04.084 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Cheapest plan:
+EnumerableTableScan(table=[[TEST, EX.xlsx]]): rowcount = 100.0, cumulative cost = {100.0 rows, 101.0 cpu, 0.0 io}, id = 15
+
+16:32:04.086 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Provenance:
+rel#15:EnumerableTableScan.ENUMERABLE.[](table=[TEST, EX.xlsx])
+  call#17 rule [EnumerableTableScanRule(in:NONE,out:ENUMERABLE)]
+    rel#1:LogicalTableScan.NONE.[](table=[TEST, EX.xlsx])
+      no parent
+
+16:32:04.086 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - Rule Attempts Info for HepPlanner
+16:32:04.086 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - 
+Rules                                                                   Attempts           Time (us)
+* Total                                                                        0                   0
+
+16:32:04.086 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - For final plan, using rel#15:EnumerableTableScan.ENUMERABLE.[](table=[TEST, EX.xlsx])
+16:32:04.086 [main] DEBUG org.apache.calcite.prepare.Prepare - Plan after physical tweaks: EnumerableTableScan(table=[[TEST, EX.xlsx]]): rowcount = 100.0, cumulative cost = {100.0 rows, 101.0 cpu, 0.0 io}, id = 15
+
+16:33:08.305 [main] INFO  de.paulsikorski.calcitetest.model.SqlOnFileSchemaFactory - Constructing Schema TEST
+16:33:08.308 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapBuilder - Building tables from files in base directory src\test\resources\test
+16:33:08.308 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapBuilder - Found 9 files in directory src\test\resources\test
+16:33:08.311 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\DATE.csv
+16:33:08.312 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table DATE.csv from csv file
+16:33:08.315 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\DEPTS.json
+16:33:08.316 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table DEPTS.json from json file
+16:33:08.316 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EMPS.json
+16:33:08.316 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table EMPS.json from json file
+16:33:08.316 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EMPTY.json
+16:33:08.316 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table EMPTY.json from json file
+16:33:08.316 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EX.csv
+16:33:08.316 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table EX.csv from csv file
+16:33:08.316 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EX.xlsx
+16:33:08.317 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Creating CSV with new name EX.csv
+16:33:08.317 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - File path is C:\Users\thies\Desktop\Calcite\calcite-test\src\test\resources\test\EX.xlsx
+16:33:08.416 [main] DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+16:33:08.417 [main] DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+16:33:08.753 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String First Name
+16:33:08.754 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Last Name
+16:33:08.754 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Gender
+16:33:08.754 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Country
+16:33:08.754 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Age
+16:33:08.754 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Date
+16:33:08.755 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Id
+16:33:08.755 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Dulce
+16:33:08.755 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Abril
+16:33:08.755 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:33:08.755 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:33:08.755 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 32.0
+16:33:08.756 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 15/10/2017
+16:33:08.756 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 1562.0
+16:33:08.756 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Mara
+16:33:08.756 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Hashimoto
+16:33:08.756 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:33:08.756 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Great Britain
+16:33:08.757 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 25.0
+16:33:08.757 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 16/08/2016
+16:33:08.757 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 1582.0
+16:33:08.757 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Philip
+16:33:08.757 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Gent
+16:33:08.757 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Male
+16:33:08.758 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String France
+16:33:08.758 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 36.0
+16:33:08.758 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 21/05/2015
+16:33:08.758 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2587.0
+16:33:08.758 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Kathleen
+16:33:08.758 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Hanner
+16:33:08.758 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:33:08.758 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:33:08.759 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 25.0
+16:33:08.759 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 15/10/2017
+16:33:08.759 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 3549.0
+16:33:08.759 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Nereida
+16:33:08.759 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Magwood
+16:33:08.759 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:33:08.759 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:33:08.760 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 58.0
+16:33:08.760 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 16/08/2016
+16:33:08.760 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2468.0
+16:33:08.760 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Gaston
+16:33:08.760 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Brumm
+16:33:08.760 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Male
+16:33:08.760 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:33:08.760 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 24.0
+16:33:08.760 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 21/05/2015
+16:33:08.761 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2554.0
+16:33:08.761 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Etta
+16:33:08.761 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Hurn
+16:33:08.761 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:33:08.761 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Great Britain
+16:33:08.761 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 56.0
+16:33:08.761 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 15/10/2017
+16:33:08.761 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 3598.0
+16:33:08.762 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Earlean
+16:33:08.762 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Melgar
+16:33:08.762 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:33:08.762 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:33:08.762 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 27.0
+16:33:08.762 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 16/08/2016
+16:33:08.762 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2456.0
+16:33:08.762 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Vincenza
+16:33:08.762 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Weiland
+16:33:08.763 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:33:08.763 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:33:08.763 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 40.0
+16:33:08.763 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 21/05/2015
+16:33:08.763 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 6548.0
+16:33:08.763 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - String Buffer assumes the form First Name:string,Last Name:string,Gender:string,Country:string,Age:string,Date:string,Id:string
+Dulce,Abril,Female,United States,32.0,15/10/2017,1562.0
+Mara,Hashimoto,Female,Great Britain,25.0,16/08/2016,1582.0
+Philip,Gent,Male,France,36.0,21/05/2015,2587.0
+Kathleen,Hanner,Female,United States,25.0,15/10/2017,3549.0
+Nereida,Magwood,Female,United States,58.0,16/08/2016,2468.0
+Gaston,Brumm,Male,United States,24.0,21/05/2015,2554.0
+Etta,Hurn,Female,Great Britain,56.0,15/10/2017,3598.0
+Earlean,Melgar,Female,United States,27.0,16/08/2016,2456.0
+Vincenza,Weiland,Female,United States,40.0,21/05/2015,6548.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+16:33:08.764 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Builddd table EX.xlsx from xlsx file
+16:33:08.764 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\SDEPTS.json
+16:33:08.764 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table SDEPTS.json from json file
+16:33:08.764 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\STUDENTS.json
+16:33:08.764 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table STUDENTS.json from json file
+16:33:08.764 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\TOPICS.json
+16:33:08.764 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table TOPICS.json from json file
+16:33:08.767 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapBuilder - Builder Map [DATE.csv, DEPTS.json, EMPS.json, EMPTY.json, EX.csv, EX.xlsx, SDEPTS.json, STUDENTS.json, TOPICS.json]
+16:33:08.783 [main] INFO  de.paulsikorski.calcitetest.CommandLineToolLauncher - Connected to Sql-On-File
+16:42:25.137 [main] INFO  de.paulsikorski.calcitetest.model.SqlOnFileSchemaFactory - Constructing Schema TEST
+16:42:25.140 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapBuilder - Building tables from files in base directory src\test\resources\test
+16:42:25.140 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapBuilder - Found 9 files in directory src\test\resources\test
+16:42:25.143 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\DATE.csv
+16:42:25.144 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table DATE.csv from csv file
+16:42:25.147 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\DEPTS.json
+16:42:25.148 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table DEPTS.json from json file
+16:42:25.148 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EMPS.json
+16:42:25.148 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table EMPS.json from json file
+16:42:25.148 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EMPTY.json
+16:42:25.148 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table EMPTY.json from json file
+16:42:25.148 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EX.csv
+16:42:25.148 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table EX.csv from csv file
+16:42:25.149 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EX.xlsx
+16:42:25.149 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Creating CSV with new name EX.csv
+16:42:25.149 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - File path is C:\Users\thies\Desktop\Calcite\calcite-test\src\test\resources\test\EX.xlsx
+16:42:25.252 [main] DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+16:42:25.254 [main] DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+16:42:25.631 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String First Name
+16:42:25.631 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Last Name
+16:42:25.631 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Gender
+16:42:25.631 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Country
+16:42:25.631 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Age
+16:42:25.631 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Date
+16:42:25.632 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Id
+16:42:25.632 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Dulce
+16:42:25.632 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Abril
+16:42:25.632 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:42:25.632 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:42:25.633 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 32.0
+16:42:25.633 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 15/10/2017
+16:42:25.633 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 1562.0
+16:42:25.633 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Mara
+16:42:25.634 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Hashimoto
+16:42:25.634 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:42:25.634 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Great Britain
+16:42:25.634 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 25.0
+16:42:25.635 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 16/08/2016
+16:42:25.635 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 1582.0
+16:42:25.635 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Philip
+16:42:25.635 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Gent
+16:42:25.635 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Male
+16:42:25.635 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String France
+16:42:25.635 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 36.0
+16:42:25.635 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 21/05/2015
+16:42:25.635 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2587.0
+16:42:25.636 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Kathleen
+16:42:25.636 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Hanner
+16:42:25.636 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:42:25.636 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:42:25.636 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 25.0
+16:42:25.636 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 15/10/2017
+16:42:25.636 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 3549.0
+16:42:25.636 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Nereida
+16:42:25.637 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Magwood
+16:42:25.637 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:42:25.637 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:42:25.637 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 58.0
+16:42:25.637 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 16/08/2016
+16:42:25.637 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2468.0
+16:42:25.637 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Gaston
+16:42:25.637 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Brumm
+16:42:25.638 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Male
+16:42:25.638 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:42:25.638 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 24.0
+16:42:25.638 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 21/05/2015
+16:42:25.638 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2554.0
+16:42:25.638 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Etta
+16:42:25.638 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Hurn
+16:42:25.638 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:42:25.638 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Great Britain
+16:42:25.639 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 56.0
+16:42:25.639 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 15/10/2017
+16:42:25.639 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 3598.0
+16:42:25.639 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Earlean
+16:42:25.639 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Melgar
+16:42:25.639 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:42:25.639 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:42:25.639 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 27.0
+16:42:25.639 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 16/08/2016
+16:42:25.640 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2456.0
+16:42:25.640 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Vincenza
+16:42:25.640 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Weiland
+16:42:25.640 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:42:25.640 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:42:25.640 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 40.0
+16:42:25.640 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 21/05/2015
+16:42:25.640 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 6548.0
+16:42:25.640 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - String Buffer assumes the form First Name:string,Last Name:string,Gender:string,Country:string,Age:string,Date:string,Id:string
+Dulce,Abril,Female,United States,32.0,15/10/2017,1562.0
+Mara,Hashimoto,Female,Great Britain,25.0,16/08/2016,1582.0
+Philip,Gent,Male,France,36.0,21/05/2015,2587.0
+Kathleen,Hanner,Female,United States,25.0,15/10/2017,3549.0
+Nereida,Magwood,Female,United States,58.0,16/08/2016,2468.0
+Gaston,Brumm,Male,United States,24.0,21/05/2015,2554.0
+Etta,Hurn,Female,Great Britain,56.0,15/10/2017,3598.0
+Earlean,Melgar,Female,United States,27.0,16/08/2016,2456.0
+Vincenza,Weiland,Female,United States,40.0,21/05/2015,6548.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+16:42:25.641 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Builddd table EX.xlsx from xlsx file
+16:42:25.641 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\SDEPTS.json
+16:42:25.642 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table SDEPTS.json from json file
+16:42:25.642 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\STUDENTS.json
+16:42:25.642 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table STUDENTS.json from json file
+16:42:25.642 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\TOPICS.json
+16:42:25.642 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table TOPICS.json from json file
+16:42:25.644 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapBuilder - Builder Map [DATE.csv, DEPTS.json, EMPS.json, EMPTY.json, EX.csv, EX.xlsx, SDEPTS.json, STUDENTS.json, TOPICS.json]
+16:42:25.662 [main] INFO  de.paulsikorski.calcitetest.CommandLineToolLauncher - Connected to Sql-On-File
+16:50:25.543 [main] INFO  de.paulsikorski.calcitetest.model.SqlOnFileSchemaFactory - Constructing Schema TEST
+16:50:25.546 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapBuilder - Building tables from files in base directory src\test\resources\test
+16:50:25.546 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapBuilder - Found 9 files in directory src\test\resources\test
+16:50:25.549 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\DATE.csv
+16:50:25.551 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table DATE.csv from csv file
+16:50:25.554 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\DEPTS.json
+16:50:25.556 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table DEPTS.json from json file
+16:50:25.556 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EMPS.json
+16:50:25.556 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table EMPS.json from json file
+16:50:25.556 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EMPTY.json
+16:50:25.556 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table EMPTY.json from json file
+16:50:25.557 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EX.csv
+16:50:25.557 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table EX.csv from csv file
+16:50:25.557 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EX.xlsx
+16:50:25.558 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Creating CSV with new name EX.csv
+16:50:25.558 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - File path is C:\Users\thies\Desktop\Calcite\calcite-test\src\test\resources\test\EX.xlsx
+16:50:25.661 [main] DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+16:50:25.664 [main] DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+16:50:26.025 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String First Name
+16:50:26.025 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Last Name
+16:50:26.025 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Gender
+16:50:26.025 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Country
+16:50:26.025 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Age
+16:50:26.026 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Date
+16:50:26.026 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Id
+16:50:26.026 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Dulce
+16:50:26.026 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Abril
+16:50:26.026 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:50:26.026 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:50:26.027 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 32.0
+16:50:26.027 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 15/10/2017
+16:50:26.027 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 1562.0
+16:50:26.027 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Mara
+16:50:26.027 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Hashimoto
+16:50:26.027 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:50:26.027 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Great Britain
+16:50:26.028 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 25.0
+16:50:26.028 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 16/08/2016
+16:50:26.028 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 1582.0
+16:50:26.028 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Philip
+16:50:26.028 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Gent
+16:50:26.028 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Male
+16:50:26.028 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String France
+16:50:26.028 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 36.0
+16:50:26.028 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 21/05/2015
+16:50:26.029 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2587.0
+16:50:26.029 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Kathleen
+16:50:26.029 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Hanner
+16:50:26.029 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:50:26.029 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:50:26.029 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 25.0
+16:50:26.029 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 15/10/2017
+16:50:26.030 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 3549.0
+16:50:26.030 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Nereida
+16:50:26.030 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Magwood
+16:50:26.030 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:50:26.030 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:50:26.030 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 58.0
+16:50:26.030 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 16/08/2016
+16:50:26.031 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2468.0
+16:50:26.031 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Gaston
+16:50:26.031 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Brumm
+16:50:26.031 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Male
+16:50:26.031 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:50:26.031 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 24.0
+16:50:26.031 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 21/05/2015
+16:50:26.031 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2554.0
+16:50:26.031 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Etta
+16:50:26.032 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Hurn
+16:50:26.032 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:50:26.032 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Great Britain
+16:50:26.032 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 56.0
+16:50:26.032 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 15/10/2017
+16:50:26.032 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 3598.0
+16:50:26.032 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Earlean
+16:50:26.032 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Melgar
+16:50:26.032 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:50:26.032 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:50:26.033 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 27.0
+16:50:26.033 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 16/08/2016
+16:50:26.033 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2456.0
+16:50:26.033 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Vincenza
+16:50:26.033 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Weiland
+16:50:26.033 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:50:26.033 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:50:26.033 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 40.0
+16:50:26.033 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 21/05/2015
+16:50:26.033 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 6548.0
+16:50:26.034 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - String Buffer assumes the form First Name:string,Last Name:string,Gender:string,Country:string,Age:string,Date:string,Id:string
+Dulce,Abril,Female,United States,32.0,15/10/2017,1562.0
+Mara,Hashimoto,Female,Great Britain,25.0,16/08/2016,1582.0
+Philip,Gent,Male,France,36.0,21/05/2015,2587.0
+Kathleen,Hanner,Female,United States,25.0,15/10/2017,3549.0
+Nereida,Magwood,Female,United States,58.0,16/08/2016,2468.0
+Gaston,Brumm,Male,United States,24.0,21/05/2015,2554.0
+Etta,Hurn,Female,Great Britain,56.0,15/10/2017,3598.0
+Earlean,Melgar,Female,United States,27.0,16/08/2016,2456.0
+Vincenza,Weiland,Female,United States,40.0,21/05/2015,6548.0
+
+16:50:26.035 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Builddd table EX.xlsx from xlsx file
+16:50:26.035 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\SDEPTS.json
+16:50:26.035 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table SDEPTS.json from json file
+16:50:26.035 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\STUDENTS.json
+16:50:26.035 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table STUDENTS.json from json file
+16:50:26.035 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\TOPICS.json
+16:50:26.035 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table TOPICS.json from json file
+16:50:26.038 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapBuilder - Builder Map [DATE.csv, DEPTS.json, EMPS.json, EMPTY.json, EX.csv, EX.xlsx, SDEPTS.json, STUDENTS.json, TOPICS.json]
+16:50:26.054 [main] INFO  de.paulsikorski.calcitetest.CommandLineToolLauncher - Connected to Sql-On-File
+16:53:10.787 [main] DEBUG org.apache.calcite.sql2rel - Plan after converting SqlNode to RelNode
+LogicalProject(line=[$0])
+  LogicalTableScan(table=[[TEST, EX.xlsx]])
+
+16:53:10.803 [main] DEBUG org.apache.calcite.sql2rel - Plan after trimming unused fields
+LogicalProject(line=[$0])
+  LogicalTableScan(table=[[TEST, EX.xlsx]])
+
+16:53:10.803 [main] DEBUG org.apache.calcite.sql2rel - Plan after trimming unused fields
+LogicalProject(line=[$0])
+  LogicalTableScan(table=[[TEST, EX.xlsx]])
+
+16:53:10.813 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - Rule Attempts Info for HepPlanner
+16:53:10.814 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - 
+Rules                                                                   Attempts           Time (us)
+* Total                                                                        0                   0
+
+16:53:10.815 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - For final plan, using rel#4:LogicalProject.NONE.[](input=HepRelVertex#3,inputs=0)
+16:53:10.815 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - For final plan, using rel#1:LogicalTableScan.NONE.[](table=[TEST, EX.xlsx])
+16:53:10.817 [main] DEBUG org.apache.calcite.sql2rel - Plan after trimming unused fields
+LogicalProject(line=[$0])
+  LogicalTableScan(table=[[TEST, EX.xlsx]])
+
+16:53:10.876 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@5458c71e; COST = {inf}
+16:53:10.876 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [ProjectRemoveRule] rels [#7]
+16:53:10.877 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#24: Apply rule [ProjectRemoveRule] to [rel#7:LogicalProject.NONE.[](input=RelSubset#6,inputs=0)]
+16:53:10.878 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#6 via ProjectRemoveRule
+16:53:10.878 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#24 generated 1 successors: [rel#6:RelSubset#0.NONE.[]]
+16:53:10.878 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@5458c71e; COST = {inf}
+16:53:10.878 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [BindableTableScanRule] rels [#1]
+16:53:10.879 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#15: Apply rule [BindableTableScanRule] to [rel#1:LogicalTableScan.NONE.[](table=[TEST, EX.xlsx])]
+16:53:10.881 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#13 via BindableTableScanRule
+16:53:10.882 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#15 generated 1 successors: [rel#13:BindableTableScan.BINDABLE.[](table=[TEST, EX.xlsx])]
+16:53:10.882 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@5458c71e; COST = {inf}
+16:53:10.882 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [EnumerableTableScanRule(in:NONE,out:ENUMERABLE)] rels [#1]
+16:53:10.882 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#17: Apply rule [EnumerableTableScanRule(in:NONE,out:ENUMERABLE)] to [rel#1:LogicalTableScan.NONE.[](table=[TEST, EX.xlsx])]
+16:53:10.892 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#15 via EnumerableTableScanRule(in:NONE,out:ENUMERABLE)
+16:53:10.892 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#17 generated 1 successors: [rel#15:EnumerableTableScan.ENUMERABLE.[](table=[TEST, EX.xlsx])]
+16:53:10.892 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@5458c71e; COST = {100.0 rows, 101.0 cpu, 0.0 io}
+16:53:10.892 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Skip match: rule [EnumerableProjectRule(in:NONE,out:ENUMERABLE)] rels [#7]
+16:53:10.892 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [ExpandConversionRule] rels [#11]
+16:53:10.892 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#56: Apply rule [ExpandConversionRule] to [rel#11:AbstractConverter.ENUMERABLE.[](input=RelSubset#6,convention=ENUMERABLE,sort=[])]
+16:53:10.894 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#56 generated 0 successors.
+16:53:10.894 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@5458c71e; COST = {100.0 rows, 101.0 cpu, 0.0 io}
+16:53:10.894 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)] rels [#13]
+16:53:10.895 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#116: Apply rule [EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)] to [rel#13:BindableTableScan.BINDABLE.[](table=[TEST, EX.xlsx])]
+16:53:10.895 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#16 via EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)
+16:53:10.905 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#116 generated 1 successors: [rel#16:EnumerableInterpreter.ENUMERABLE.[](input=BindableTableScan#13)]
+16:53:10.906 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@5458c71e; COST = {100.0 rows, 101.0 cpu, 0.0 io}
+16:53:10.906 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - Rule Attempts Info for VolcanoPlanner
+16:53:10.906 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - 
+Rules                                                                   Attempts           Time (us)
+EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)                          1              11,013
+EnumerableTableScanRule(in:NONE,out:ENUMERABLE)                                1               9,668
+BindableTableScanRule                                                          1               3,705
+ExpandConversionRule                                                           1               1,953
+ProjectRemoveRule                                                              1               1,215
+* Total                                                                        5              27,554
+
+16:53:10.914 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Cheapest plan:
+EnumerableTableScan(table=[[TEST, EX.xlsx]]): rowcount = 100.0, cumulative cost = {100.0 rows, 101.0 cpu, 0.0 io}, id = 15
+
+16:53:10.917 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Provenance:
+rel#15:EnumerableTableScan.ENUMERABLE.[](table=[TEST, EX.xlsx])
+  call#17 rule [EnumerableTableScanRule(in:NONE,out:ENUMERABLE)]
+    rel#1:LogicalTableScan.NONE.[](table=[TEST, EX.xlsx])
+      no parent
+
+16:53:10.917 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - Rule Attempts Info for HepPlanner
+16:53:10.918 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - 
+Rules                                                                   Attempts           Time (us)
+* Total                                                                        0                   0
+
+16:53:10.918 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - For final plan, using rel#15:EnumerableTableScan.ENUMERABLE.[](table=[TEST, EX.xlsx])
+16:53:10.918 [main] DEBUG org.apache.calcite.prepare.Prepare - Plan after physical tweaks: EnumerableTableScan(table=[[TEST, EX.xlsx]]): rowcount = 100.0, cumulative cost = {100.0 rows, 101.0 cpu, 0.0 io}, id = 15
+
+16:53:10.982 [main] ERROR de.paulsikorski.calcitetest.CalciteQueryExecutor - Error while executing statement 'SELECT * FROM "EX.xlsx"'
+java.sql.SQLException: Error while executing SQL "SELECT * FROM "EX.xlsx"": java.io.FileNotFoundException: C:\Users\thies\Desktop\Calcite\calcite-test\src\test\resources\test\EX.csv (Das System kann die angegebene Datei nicht finden)
+	at org.apache.calcite.avatica.Helper.createException(Helper.java:56) ~[avatica-core-1.19.0.jar:1.19.0]
+	at org.apache.calcite.avatica.Helper.createException(Helper.java:41) ~[avatica-core-1.19.0.jar:1.19.0]
+	at org.apache.calcite.avatica.AvaticaStatement.executeInternal(AvaticaStatement.java:163) ~[avatica-core-1.19.0.jar:1.19.0]
+	at org.apache.calcite.avatica.AvaticaStatement.executeQuery(AvaticaStatement.java:227) ~[avatica-core-1.19.0.jar:1.19.0]
+	at de.paulsikorski.calcitetest.CalciteQueryExecutor.executeStatement(CalciteQueryExecutor.java:22) [classes/:?]
+	at de.paulsikorski.calcitetest.CommandLineToolLauncher.main(CommandLineToolLauncher.java:42) [classes/:?]
+Caused by: java.lang.RuntimeException: java.io.FileNotFoundException: C:\Users\thies\Desktop\Calcite\calcite-test\src\test\resources\test\EX.csv (Das System kann die angegebene Datei nicht finden)
+	at org.apache.calcite.adapter.file.CsvEnumerator.<init>(CsvEnumerator.java:90) ~[calcite-file-1.28.0.jar:1.28.0]
+	at de.paulsikorski.calcitetest.model.CsvTable$1.enumerator(CsvTable.java:55) ~[classes/:?]
+	at org.apache.calcite.linq4j.EnumerableDefaults$17$1.<init>(EnumerableDefaults.java:2814) ~[calcite-linq4j-1.28.0.jar:1.28.0]
+	at org.apache.calcite.linq4j.EnumerableDefaults$17.enumerator(EnumerableDefaults.java:2813) ~[calcite-linq4j-1.28.0.jar:1.28.0]
+	at org.apache.calcite.linq4j.AbstractEnumerable.iterator(AbstractEnumerable.java:33) ~[calcite-linq4j-1.28.0.jar:1.28.0]
+	at org.apache.calcite.avatica.MetaImpl.createCursor(MetaImpl.java:82) ~[avatica-core-1.19.0.jar:1.19.0]
+	at org.apache.calcite.avatica.AvaticaResultSet.execute(AvaticaResultSet.java:186) ~[avatica-core-1.19.0.jar:1.19.0]
+	at org.apache.calcite.jdbc.CalciteResultSet.execute(CalciteResultSet.java:64) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.jdbc.CalciteResultSet.execute(CalciteResultSet.java:43) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.avatica.AvaticaConnection$1.execute(AvaticaConnection.java:667) ~[avatica-core-1.19.0.jar:1.19.0]
+	at org.apache.calcite.jdbc.CalciteMetaImpl.prepareAndExecute(CalciteMetaImpl.java:638) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.avatica.AvaticaConnection.prepareAndExecuteInternal(AvaticaConnection.java:675) ~[avatica-core-1.19.0.jar:1.19.0]
+	at org.apache.calcite.avatica.AvaticaStatement.executeInternal(AvaticaStatement.java:156) ~[avatica-core-1.19.0.jar:1.19.0]
+	... 3 more
+Caused by: java.io.FileNotFoundException: C:\Users\thies\Desktop\Calcite\calcite-test\src\test\resources\test\EX.csv (Das System kann die angegebene Datei nicht finden)
+	at java.io.FileInputStream.open0(Native Method) ~[?:?]
+	at java.io.FileInputStream.open(FileInputStream.java:216) ~[?:?]
+	at java.io.FileInputStream.<init>(FileInputStream.java:157) ~[?:?]
+	at org.apache.calcite.util.Sources$FileSource.openStream(Sources.java:279) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.util.Sources$FileSource.reader(Sources.java:272) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.adapter.file.CsvEnumerator.openCsv(CsvEnumerator.java:173) ~[calcite-file-1.28.0.jar:1.28.0]
+	at org.apache.calcite.adapter.file.CsvEnumerator.<init>(CsvEnumerator.java:86) ~[calcite-file-1.28.0.jar:1.28.0]
+	at de.paulsikorski.calcitetest.model.CsvTable$1.enumerator(CsvTable.java:55) ~[classes/:?]
+	at org.apache.calcite.linq4j.EnumerableDefaults$17$1.<init>(EnumerableDefaults.java:2814) ~[calcite-linq4j-1.28.0.jar:1.28.0]
+	at org.apache.calcite.linq4j.EnumerableDefaults$17.enumerator(EnumerableDefaults.java:2813) ~[calcite-linq4j-1.28.0.jar:1.28.0]
+	at org.apache.calcite.linq4j.AbstractEnumerable.iterator(AbstractEnumerable.java:33) ~[calcite-linq4j-1.28.0.jar:1.28.0]
+	at org.apache.calcite.avatica.MetaImpl.createCursor(MetaImpl.java:82) ~[avatica-core-1.19.0.jar:1.19.0]
+	at org.apache.calcite.avatica.AvaticaResultSet.execute(AvaticaResultSet.java:186) ~[avatica-core-1.19.0.jar:1.19.0]
+	at org.apache.calcite.jdbc.CalciteResultSet.execute(CalciteResultSet.java:64) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.jdbc.CalciteResultSet.execute(CalciteResultSet.java:43) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.avatica.AvaticaConnection$1.execute(AvaticaConnection.java:667) ~[avatica-core-1.19.0.jar:1.19.0]
+	at org.apache.calcite.jdbc.CalciteMetaImpl.prepareAndExecute(CalciteMetaImpl.java:638) ~[calcite-core-1.28.0.jar:1.28.0]
+	at org.apache.calcite.avatica.AvaticaConnection.prepareAndExecuteInternal(AvaticaConnection.java:675) ~[avatica-core-1.19.0.jar:1.19.0]
+	at org.apache.calcite.avatica.AvaticaStatement.executeInternal(AvaticaStatement.java:156) ~[avatica-core-1.19.0.jar:1.19.0]
+	... 3 more
+16:53:10.990 [main] ERROR de.paulsikorski.calcitetest.CommandLineToolLauncher - Execution of statement SELECT * FROM "EX.xlsx" failed
+16:54:57.322 [main] INFO  de.paulsikorski.calcitetest.model.SqlOnFileSchemaFactory - Constructing Schema TEST
+16:54:57.325 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapBuilder - Building tables from files in base directory src\test\resources\test
+16:54:57.326 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapBuilder - Found 8 files in directory src\test\resources\test
+16:54:57.328 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\DATE.csv
+16:54:57.330 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table DATE.csv from csv file
+16:54:57.334 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\DEPTS.json
+16:54:57.334 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table DEPTS.json from json file
+16:54:57.334 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EMPS.json
+16:54:57.334 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table EMPS.json from json file
+16:54:57.334 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EMPTY.json
+16:54:57.335 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table EMPTY.json from json file
+16:54:57.335 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\EX.xlsx
+16:54:57.335 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Creating CSV with new name EX.csv
+16:54:57.335 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - File path is C:\Users\thies\Desktop\Calcite\calcite-test\src\test\resources\test\EX.xlsx
+16:54:57.426 [main] DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /xl/_rels/workbook.xml.rels
+16:54:57.428 [main] DEBUG org.apache.poi.openxml4j.opc.PackageRelationshipCollection - Parsing relationship: /_rels/.rels
+16:54:57.794 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String First Name
+16:54:57.794 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Last Name
+16:54:57.794 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Gender
+16:54:57.794 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Country
+16:54:57.794 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Age
+16:54:57.794 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Date
+16:54:57.795 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Id
+16:54:57.795 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Dulce
+16:54:57.795 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Abril
+16:54:57.795 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:54:57.795 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:54:57.796 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 32.0
+16:54:57.796 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 15/10/2017
+16:54:57.796 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 1562.0
+16:54:57.796 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Mara
+16:54:57.797 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Hashimoto
+16:54:57.797 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:54:57.797 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Great Britain
+16:54:57.797 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 25.0
+16:54:57.797 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 16/08/2016
+16:54:57.797 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 1582.0
+16:54:57.797 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Philip
+16:54:57.797 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Gent
+16:54:57.797 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Male
+16:54:57.798 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String France
+16:54:57.798 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 36.0
+16:54:57.798 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 21/05/2015
+16:54:57.798 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2587.0
+16:54:57.798 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Kathleen
+16:54:57.798 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Hanner
+16:54:57.798 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:54:57.798 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:54:57.798 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 25.0
+16:54:57.799 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 15/10/2017
+16:54:57.799 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 3549.0
+16:54:57.799 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Nereida
+16:54:57.799 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Magwood
+16:54:57.799 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:54:57.799 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:54:57.799 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 58.0
+16:54:57.799 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 16/08/2016
+16:54:57.799 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2468.0
+16:54:57.800 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Gaston
+16:54:57.800 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Brumm
+16:54:57.800 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Male
+16:54:57.800 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:54:57.800 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 24.0
+16:54:57.800 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 21/05/2015
+16:54:57.800 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2554.0
+16:54:57.800 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Etta
+16:54:57.801 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Hurn
+16:54:57.801 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:54:57.801 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Great Britain
+16:54:57.801 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 56.0
+16:54:57.801 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 15/10/2017
+16:54:57.801 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 3598.0
+16:54:57.801 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Earlean
+16:54:57.801 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Melgar
+16:54:57.801 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:54:57.802 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:54:57.802 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 27.0
+16:54:57.802 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 16/08/2016
+16:54:57.802 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 2456.0
+16:54:57.802 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Vincenza
+16:54:57.802 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Weiland
+16:54:57.802 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String Female
+16:54:57.802 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String United States
+16:54:57.802 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 40.0
+16:54:57.803 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending String 21/05/2015
+16:54:57.803 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - Appending Numeric 6548.0
+16:54:57.803 [main] INFO  de.paulsikorski.calcitetest.model.ExcelToCSV - String Buffer assumes the form First Name:string,Last Name:string,Gender:string,Country:string,Age:string,Date:string,Id:string
+Dulce,Abril,Female,United States,32.0,15/10/2017,1562.0
+Mara,Hashimoto,Female,Great Britain,25.0,16/08/2016,1582.0
+Philip,Gent,Male,France,36.0,21/05/2015,2587.0
+Kathleen,Hanner,Female,United States,25.0,15/10/2017,3549.0
+Nereida,Magwood,Female,United States,58.0,16/08/2016,2468.0
+Gaston,Brumm,Male,United States,24.0,21/05/2015,2554.0
+Etta,Hurn,Female,Great Britain,56.0,15/10/2017,3598.0
+Earlean,Melgar,Female,United States,27.0,16/08/2016,2456.0
+Vincenza,Weiland,Female,United States,40.0,21/05/2015,6548.0
+
+16:54:57.804 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Builddd table EX.xlsx from xlsx file
+16:54:57.804 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\SDEPTS.json
+16:54:57.804 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table SDEPTS.json from json file
+16:54:57.804 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\STUDENTS.json
+16:54:57.804 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table STUDENTS.json from json file
+16:54:57.804 [main] DEBUG de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Attempting to build table for file src\test\resources\test\TOPICS.json
+16:54:57.804 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapEntryBuilder - Build table TOPICS.json from json file
+16:54:57.806 [main] INFO  de.paulsikorski.calcitetest.model.SchemaTableMapBuilder - Builder Map [DATE.csv, DEPTS.json, EMPS.json, EMPTY.json, EX.xlsx, SDEPTS.json, STUDENTS.json, TOPICS.json]
+16:54:57.826 [main] INFO  de.paulsikorski.calcitetest.CommandLineToolLauncher - Connected to Sql-On-File
+16:56:07.729 [main] DEBUG org.apache.calcite.sql2rel - Plan after converting SqlNode to RelNode
+LogicalProject(First Name=[$0], Last Name=[$1], Gender=[$2], Country=[$3], Age=[$4], Date=[$5], Id=[$6])
+  LogicalTableScan(table=[[TEST, EX.xlsx]])
+
+16:56:07.745 [main] DEBUG org.apache.calcite.sql2rel - Plan after trimming unused fields
+LogicalProject(First Name=[$0], Last Name=[$1], Gender=[$2], Country=[$3], Age=[$4], Date=[$5], Id=[$6])
+  LogicalTableScan(table=[[TEST, EX.xlsx]])
+
+16:56:07.746 [main] DEBUG org.apache.calcite.sql2rel - Plan after trimming unused fields
+LogicalProject(First Name=[$0], Last Name=[$1], Gender=[$2], Country=[$3], Age=[$4], Date=[$5], Id=[$6])
+  LogicalTableScan(table=[[TEST, EX.xlsx]])
+
+16:56:07.755 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - Rule Attempts Info for HepPlanner
+16:56:07.756 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - 
+Rules                                                                   Attempts           Time (us)
+* Total                                                                        0                   0
+
+16:56:07.756 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - For final plan, using rel#4:LogicalProject.NONE.[](input=HepRelVertex#3,inputs=0..6)
+16:56:07.756 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - For final plan, using rel#1:LogicalTableScan.NONE.[](table=[TEST, EX.xlsx])
+16:56:07.757 [main] DEBUG org.apache.calcite.sql2rel - Plan after trimming unused fields
+LogicalProject(First Name=[$0], Last Name=[$1], Gender=[$2], Country=[$3], Age=[$4], Date=[$5], Id=[$6])
+  LogicalTableScan(table=[[TEST, EX.xlsx]])
+
+16:56:07.807 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@43588265; COST = {inf}
+16:56:07.807 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [ProjectRemoveRule] rels [#7]
+16:56:07.808 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#24: Apply rule [ProjectRemoveRule] to [rel#7:LogicalProject.NONE.[](input=RelSubset#6,inputs=0..6)]
+16:56:07.809 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#6 via ProjectRemoveRule
+16:56:07.810 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#24 generated 1 successors: [rel#6:RelSubset#0.NONE.[]]
+16:56:07.810 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@43588265; COST = {inf}
+16:56:07.810 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [BindableTableScanRule] rels [#1]
+16:56:07.810 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#15: Apply rule [BindableTableScanRule] to [rel#1:LogicalTableScan.NONE.[](table=[TEST, EX.xlsx])]
+16:56:07.813 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#13 via BindableTableScanRule
+16:56:07.815 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#15 generated 1 successors: [rel#13:BindableTableScan.BINDABLE.[](table=[TEST, EX.xlsx])]
+16:56:07.815 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@43588265; COST = {inf}
+16:56:07.815 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [EnumerableTableScanRule(in:NONE,out:ENUMERABLE)] rels [#1]
+16:56:07.815 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#17: Apply rule [EnumerableTableScanRule(in:NONE,out:ENUMERABLE)] to [rel#1:LogicalTableScan.NONE.[](table=[TEST, EX.xlsx])]
+16:56:07.823 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#15 via EnumerableTableScanRule(in:NONE,out:ENUMERABLE)
+16:56:07.824 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#17 generated 1 successors: [rel#15:EnumerableTableScan.ENUMERABLE.[](table=[TEST, EX.xlsx])]
+16:56:07.824 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@43588265; COST = {100.0 rows, 101.0 cpu, 0.0 io}
+16:56:07.824 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Skip match: rule [EnumerableProjectRule(in:NONE,out:ENUMERABLE)] rels [#7]
+16:56:07.824 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [ExpandConversionRule] rels [#11]
+16:56:07.824 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#56: Apply rule [ExpandConversionRule] to [rel#11:AbstractConverter.ENUMERABLE.[](input=RelSubset#6,convention=ENUMERABLE,sort=[])]
+16:56:07.828 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#56 generated 0 successors.
+16:56:07.828 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@43588265; COST = {100.0 rows, 101.0 cpu, 0.0 io}
+16:56:07.828 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Pop match: rule [EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)] rels [#13]
+16:56:07.828 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#116: Apply rule [EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)] to [rel#13:BindableTableScan.BINDABLE.[](table=[TEST, EX.xlsx])]
+16:56:07.828 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Transform to: rel#16 via EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)
+16:56:07.841 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - call#116 generated 1 successors: [rel#16:EnumerableInterpreter.ENUMERABLE.[](input=BindableTableScan#13)]
+16:56:07.841 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - PLANNER = org.apache.calcite.plan.volcano.IterativeRuleDriver@43588265; COST = {100.0 rows, 101.0 cpu, 0.0 io}
+16:56:07.841 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - Rule Attempts Info for VolcanoPlanner
+16:56:07.841 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - 
+Rules                                                                   Attempts           Time (us)
+EnumerableInterpreterRule(in:BINDABLE,out:ENUMERABLE)                          1              12,651
+EnumerableTableScanRule(in:NONE,out:ENUMERABLE)                                1               8,813
+BindableTableScanRule                                                          1               4,324
+ExpandConversionRule                                                           1               3,786
+ProjectRemoveRule                                                              1               2,078
+* Total                                                                        5              31,652
+
+16:56:07.852 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Cheapest plan:
+EnumerableTableScan(table=[[TEST, EX.xlsx]]): rowcount = 100.0, cumulative cost = {100.0 rows, 101.0 cpu, 0.0 io}, id = 15
+
+16:56:07.854 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - Provenance:
+rel#15:EnumerableTableScan.ENUMERABLE.[](table=[TEST, EX.xlsx])
+  call#17 rule [EnumerableTableScanRule(in:NONE,out:ENUMERABLE)]
+    rel#1:LogicalTableScan.NONE.[](table=[TEST, EX.xlsx])
+      no parent
+
+16:56:07.855 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - Rule Attempts Info for HepPlanner
+16:56:07.855 [main] DEBUG org.apache.calcite.plan.AbstractRelOptPlanner.rule_execution_summary - 
+Rules                                                                   Attempts           Time (us)
+* Total                                                                        0                   0
+
+16:56:07.855 [main] DEBUG org.apache.calcite.plan.RelOptPlanner - For final plan, using rel#15:EnumerableTableScan.ENUMERABLE.[](table=[TEST, EX.xlsx])
+16:56:07.855 [main] DEBUG org.apache.calcite.prepare.Prepare - Plan after physical tweaks: EnumerableTableScan(table=[[TEST, EX.xlsx]]): rowcount = 100.0, cumulative cost = {100.0 rows, 101.0 cpu, 0.0 io}, id = 15
+

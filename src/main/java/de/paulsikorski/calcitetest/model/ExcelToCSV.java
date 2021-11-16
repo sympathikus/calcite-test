@@ -45,6 +45,7 @@ public class ExcelToCSV {
             	cellIterator.next();
             }
             
+            boolean is_empty = true;
             while (cellIterator.hasNext()) {
                 Cell cell = cellIterator.next();
                 if(!cellIterator.hasNext()) {
@@ -52,16 +53,22 @@ public class ExcelToCSV {
                     case STRING:
                         rowBuffer.append(cell.getStringCellValue());
                         LOG.info("Appending String {}", cell.getStringCellValue());
+                        is_empty = false;
                         break;
                     case NUMERIC:
                     	rowBuffer.append(cell.getNumericCellValue());
                         LOG.info("Appending Numeric {}", cell.getNumericCellValue());
+                        is_empty = false;
                         break;
                     case BOOLEAN:
                     	rowBuffer.append(cell.getBooleanCellValue());
+                    	is_empty = false;
                         break;
+                    case BLANK:
+                    	break;
                     default:
                     	rowBuffer.append(cell);
+                    	LOG.info("Adding empty cells {}", cell);
                     	break;
                     }
                 } else {
@@ -69,14 +76,19 @@ public class ExcelToCSV {
                     case STRING:
                     	rowBuffer.append(cell.getStringCellValue() + ",");
                         LOG.info("Appending String {}", cell.getStringCellValue());
+                        is_empty = false;
                         break;
                     case NUMERIC:
                     	rowBuffer.append(cell.getNumericCellValue() + ",");
                         LOG.info("Appending Numeric {}", cell.getNumericCellValue());
+                        is_empty = false;
                         break;
                     case BOOLEAN:
                     	rowBuffer.append(cell.getBooleanCellValue() + ",");
+                    	is_empty = false;
                         break;
+                    case BLANK:
+                    	break;
                     default:
                     	rowBuffer.append(cell + ",");
                     	break;
@@ -85,7 +97,7 @@ public class ExcelToCSV {
             }
             
             // start new line if next line is present
-            if(rowIterator.hasNext()) {
+            if(rowIterator.hasNext() && !is_empty) {
             	rowBuffer.append("\n");
             }
     	}
@@ -98,7 +110,9 @@ public class ExcelToCSV {
         Iterator<Row> rowIterator = sheet.iterator();
         
         if(rowIterator.hasNext()) {
+        	
         	Row row = rowIterator.next();
+        	
         	Iterator<Cell> cellIterator = row.cellIterator();
         	
         	// skip index cell
@@ -121,9 +135,10 @@ public class ExcelToCSV {
                     case BOOLEAN:
                         rowBuffer.append(cell.getBooleanCellValue() + ":bool");
                         break;
+                    case BLANK:
+                    	break;
                     default:
-                    	LOG.info("Defaulting to {}", cell);
-                    	rowBuffer.append(cell + ",");
+                    	rowBuffer.append(cell + ":unknown");
                     	break;
                     }
         		} else {
@@ -139,8 +154,10 @@ public class ExcelToCSV {
                     case BOOLEAN:
                         rowBuffer.append(cell.getBooleanCellValue() + ":bool,");
                         break;
+                    case BLANK:
+                    	break;
                     default:
-                    	rowBuffer.append(cell + ",");
+                    	rowBuffer.append(cell + ":unknown,");
                     	break;
                     }
         		}
@@ -167,8 +184,9 @@ public class ExcelToCSV {
         sb.append(getHeader(selSheet));
         sb.append(getRows(selSheet));
         
+        LOG.info("String Buffer assumes the form {}", sb);
         fos.write(sb.toString().getBytes());
-        fos.flush();
+        //fos.flush();
         fos.close();
         workBook.close();
 	}
