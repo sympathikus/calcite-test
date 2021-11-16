@@ -2,3 +2,6 @@
 logs/debug.log
 *.log
 /target/
+EX.csv
+logs/debug.log
+logs/debug.log
