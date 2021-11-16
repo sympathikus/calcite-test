@@ -5,3 +5,4 @@ logs/debug.log
 EX.csv
 logs/debug.log
 logs/debug.log
+*.log

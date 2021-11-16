@@ -122,6 +122,7 @@ public class ExcelToCSV {
                         rowBuffer.append(cell.getBooleanCellValue() + ":bool");
                         break;
                     default:
+                    	LOG.info("Defaulting to {}", cell);
                     	rowBuffer.append(cell + ",");
                     	break;
                     }
