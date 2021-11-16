@@ -23,10 +23,135 @@ public class ExcelToCSV {
 	
 	private static final Logger LOG = LogManager.getLogger(ExcelToCSV.class);
 	
-	
 	public ExcelToCSV() {
 		
 	}
+	
+	public StringBuffer getRows(XSSFSheet sheet) {
+		StringBuffer rowBuffer = new StringBuffer();
+        Iterator<Row> rowIterator = sheet.iterator();
+        
+     // skip header
+        if (rowIterator.hasNext()) {
+        	rowIterator.next();
+        }
+        
+        while (rowIterator.hasNext()) {
+            Row row = rowIterator.next();
+            Iterator<Cell> cellIterator = row.cellIterator();
+            
+            // skip index cell
+            if (cellIterator.hasNext()) {
+            	cellIterator.next();
+            }
+            
+            while (cellIterator.hasNext()) {
+                Cell cell = cellIterator.next();
+                if(!cellIterator.hasNext()) {
+                	switch (cell.getCellType()) {
+                    case STRING:
+                        rowBuffer.append(cell.getStringCellValue());
+                        LOG.info("Appending String {}", cell.getStringCellValue());
+                        break;
+                    case NUMERIC:
+                    	rowBuffer.append(cell.getNumericCellValue());
+                        LOG.info("Appending Numeric {}", cell.getNumericCellValue());
+                        break;
+                    case BOOLEAN:
+                    	rowBuffer.append(cell.getBooleanCellValue());
+                        break;
+                    default:
+                    	rowBuffer.append(cell);
+                    	break;
+                    }
+                } else {
+                	switch (cell.getCellType()) {
+                    case STRING:
+                    	rowBuffer.append(cell.getStringCellValue() + ",");
+                        LOG.info("Appending String {}", cell.getStringCellValue());
+                        break;
+                    case NUMERIC:
+                    	rowBuffer.append(cell.getNumericCellValue() + ",");
+                        LOG.info("Appending Numeric {}", cell.getNumericCellValue());
+                        break;
+                    case BOOLEAN:
+                    	rowBuffer.append(cell.getBooleanCellValue() + ",");
+                        break;
+                    default:
+                    	rowBuffer.append(cell + ",");
+                    	break;
+                    }
+                }
+            }
+            
+            // start new line if next line is present
+            if(rowIterator.hasNext()) {
+            	rowBuffer.append("\n");
+            }
+    	}
+    	return rowBuffer;
+	}
+	
+	public StringBuffer getHeader(XSSFSheet sheet) {
+		
+		StringBuffer rowBuffer = new StringBuffer();
+        Iterator<Row> rowIterator = sheet.iterator();
+        
+        if(rowIterator.hasNext()) {
+        	Row row = rowIterator.next();
+        	Iterator<Cell> cellIterator = row.cellIterator();
+        	
+        	// skip index cell
+        	if (cellIterator.hasNext()) {
+            	cellIterator.next();
+            }
+        	
+        	while(cellIterator.hasNext()) {
+        		Cell cell = cellIterator.next();
+        		if(!cellIterator.hasNext()) {
+        			switch (cell.getCellType()) {
+                    case STRING:
+                        rowBuffer.append(cell.getStringCellValue() + ":string");
+                        LOG.info("Appending String {}", cell.getStringCellValue());
+                        break;
+                    case NUMERIC:
+                        rowBuffer.append(cell.getNumericCellValue() + ":int");
+                        LOG.info("Appending Numeric {}", cell.getNumericCellValue());
+                        break;
+                    case BOOLEAN:
+                        rowBuffer.append(cell.getBooleanCellValue() + ":bool");
+                        break;
+                    default:
+                    	rowBuffer.append(cell + ",");
+                    	break;
+                    }
+        		} else {
+        			switch (cell.getCellType()) {
+                    case STRING:
+                        rowBuffer.append(cell.getStringCellValue() + ":string,");
+                        LOG.info("Appending String {}", cell.getStringCellValue());
+                        break;
+                    case NUMERIC:
+                        rowBuffer.append(cell.getNumericCellValue() + ":int,");
+                        LOG.info("Appending Numeric {}", cell.getNumericCellValue());
+                        break;
+                    case BOOLEAN:
+                        rowBuffer.append(cell.getBooleanCellValue() + ":bool,");
+                        break;
+                    default:
+                    	rowBuffer.append(cell + ",");
+                    	break;
+                    }
+        		}
+        	}
+        }
+        // start new line if next line is present
+        if(rowIterator.hasNext()) {
+        	rowBuffer.append("\n");
+        }
+        return rowBuffer;
+	}
+	
 	
 	public void excelToCSV(File file, int sheetIdx, String path) throws Exception {
 		 
@@ -36,36 +161,11 @@ public class ExcelToCSV {
         XSSFWorkbook workBook = new XSSFWorkbook(new FileInputStream(file));
         XSSFSheet selSheet = workBook.getSheetAt(sheetIdx);
         FileOutputStream fos = new FileOutputStream(path);
- 
-        Iterator<Row> rowIterator = selSheet.iterator();
         StringBuffer sb = new StringBuffer();
-        while (rowIterator.hasNext()) {
-            Row row = rowIterator.next();
-            Iterator<Cell> cellIterator = row.cellIterator();
-            if (cellIterator.hasNext()) {
-            	cellIterator.next();
-            }
-            while (cellIterator.hasNext()) {
-                Cell cell = cellIterator.next();
-                switch (cell.getCellType()) {
-                case STRING:
-                    sb.append(cell.getStringCellValue() + ",");
-                    LOG.info("Appending String {}", cell.getStringCellValue());
-                    break;
-                case NUMERIC:
-                    sb.append(cell.getNumericCellValue() + ",");
-                    LOG.info("Appending Numeric {}", cell.getNumericCellValue());
-                    break;
-                case BOOLEAN:
-                    sb.append(cell.getBooleanCellValue() + ",");
-                    break;
-                default:
-                	sb.append(cell + ",");
-                	break;
-                }
-            }
-            sb.append("\n");
-        }
+        
+        sb.append(getHeader(selSheet));
+        sb.append(getRows(selSheet));
+        
         fos.write(sb.toString().getBytes());
         fos.flush();
         fos.close();
